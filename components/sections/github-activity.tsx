@@ -1,10 +1,5 @@
 import { SectionHeading } from "@/components/section-heading";
-import {
-  type ContributionLevel,
-  fetchContributions,
-  findLastActiveDate,
-  relativeDayLabel,
-} from "@/lib/github";
+import { type ContributionLevel, fetchContributions } from "@/lib/github";
 
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
   NONE: "bg-foreground/[0.04]",
@@ -57,7 +52,6 @@ function computeMonthLabels(
 
 export async function GithubActivity() {
   const data = await fetchContributions();
-  const lastActive = data ? findLastActiveDate(data) : null;
 
   return (
     <section
@@ -144,12 +138,7 @@ export async function GithubActivity() {
 
               {/* Footer row: caption (left) + legend (right) */}
               <div className="flex items-center justify-between gap-3 mt-4 font-mono text-[10px] text-foreground-subtle flex-wrap">
-                <span>
-                  includes private repo contributions · updates ~hourly
-                  {lastActive
-                    ? ` · last active ${relativeDayLabel(lastActive)}`
-                    : ""}
-                </span>
+                <span>private repos included · updates ~hourly</span>
                 <div className="flex items-center gap-1.5">
                   <span>Less</span>
                   {(
