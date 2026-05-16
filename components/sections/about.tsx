@@ -9,13 +9,13 @@ export function About() {
     >
       <div className="space-y-8">
         <SectionHeading label="// about" title="A short introduction" />
-        <div className="max-w-3xl space-y-4 text-base sm:text-lg text-foreground-muted leading-relaxed">
+        <div className="space-y-4 text-base sm:text-lg text-foreground-muted leading-relaxed">
           {about.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
 
-        <div className="max-w-3xl flex items-start gap-3 p-4 rounded-md border border-border bg-background-elevated">
+        <div className="flex items-start gap-3 p-4 rounded-md border border-border bg-background-elevated">
           <span
             aria-hidden
             className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(16,185,129,0.7)] animate-pulse shrink-0"
