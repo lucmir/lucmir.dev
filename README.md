@@ -1,6 +1,8 @@
-# lucmir.dev
+# lucas-cunha.com
 
 Personal site of **Lucas Cunha** — engineer building AI agents and the cloud infrastructure they run on.
+
+Live at **[lucas-cunha.com](https://lucas-cunha.com)**.
 
 ![Screenshot of lucmir.dev](docs/screenshot.png)
 
@@ -34,7 +36,7 @@ pnpm lint        # eslint
 
 | Variable                | Required | Purpose                                     |
 | ----------------------- | -------- | ------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`  | No       | Canonical site URL used in metadata, sitemap, and OG tags. Defaults to `https://lucmir.dev`. |
+| `NEXT_PUBLIC_SITE_URL`  | No       | Canonical site URL used in metadata, sitemap, and OG tags. Defaults to `https://lucas-cunha.com`. |
 
 ## Project layout
 

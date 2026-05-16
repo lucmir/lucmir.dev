@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lucmir.dev";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lucas-cunha.com";
 const TITLE = `${profile.name} — Senior Engineer · AI Agents · Cloud Infrastructure`;
 const DESCRIPTION = `Personal site of ${profile.name} — engineer building AI agents and the cloud infrastructure they run on.`;
 

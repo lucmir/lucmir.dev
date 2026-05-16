@@ -76,7 +76,7 @@ export default async function OpengraphImage() {
             fontSize: 22,
           }}
         >
-          <span>lucmir.dev</span>
+          <span>lucas-cunha.com</span>
           <span style={{ color: "#10b981" }}>● ● ●</span>
         </div>
       </div>
