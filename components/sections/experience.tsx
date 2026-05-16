@@ -14,7 +14,7 @@ export function Experience() {
             <li key={i} className="relative">
               <span
                 aria-hidden
-                className="absolute -left-[36px] sm:-left-[52px] -top-1 size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted"
+                className="absolute -left-[58px] sm:-left-[74px] top-0 size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted"
               >
                 {job.monogram}
               </span>

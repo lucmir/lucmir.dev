@@ -31,21 +31,26 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(
-      ellipse 70% 50% at 20% 0%,
-      rgba(16, 185, 129, 0.05),
-      transparent 70%
-    ),
-    radial-gradient(
-      circle,
-      rgba(244, 244, 245, 0.035) 1px,
-      transparent 1px
-    ) 0 0 / 24px 24px,
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-feature-settings: "ss01", "cv11";
+}
+
+/* Soft ambient gradient pinned to the viewport.
+   Position fixed prevents compositor seams from sections that use
+   transform/will-change (like the Reveal animation wrappers). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse 90% 70% at 20% -10%,
+    rgba(16, 185, 129, 0.07),
+    transparent 70%
+  );
 }
 
 ::selection {

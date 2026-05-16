@@ -10,12 +10,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/lucmir",
   },
   cvUrl: "/LucasCunha_cv.pdf",
-  stats: [
-    "15+ years",
-    "5 companies",
-    "1M+ identity passes issued",
-    "95+ AI tool integrations",
-  ],
+  stats: ["15+ years", "5 companies", "CS BSc + MSc"],
 } as const;
 
 export const about = {
