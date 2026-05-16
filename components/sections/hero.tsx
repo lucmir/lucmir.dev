@@ -1,6 +1,6 @@
 import { ArrowDown, Download, Mail } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { HeroPhoto } from "@/components/hero-photo";
 import { profile } from "@/lib/cv-data";
 
 export function Hero() {
@@ -52,34 +52,7 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div
-            className="group relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden"
-            style={{
-              boxShadow: [
-                "0 0 0 1px rgba(16, 185, 129, 0.25)",
-                "0 0 70px -10px rgba(16, 185, 129, 0.35)",
-                "0 20px 50px -20px rgba(0, 0, 0, 0.6)",
-              ].join(", "),
-            }}
-          >
-            <Image
-              src="/eu-profile.png"
-              alt=""
-              aria-hidden
-              width={479}
-              height={479}
-              priority
-              className="absolute inset-0 size-full object-cover"
-            />
-            <Image
-              src="/eu-serious.png"
-              alt="Lucas Cunha"
-              width={479}
-              height={479}
-              priority
-              className="absolute inset-0 size-full object-cover transition-opacity duration-300 group-hover:opacity-0"
-            />
-          </div>
+          <HeroPhoto />
         </div>
       </div>
 
