@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
+import { Reveal } from "@/components/reveal";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Education } from "@/components/sections/education";
@@ -13,11 +14,21 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Contact />
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal>
+          <Experience />
+        </Reveal>
+        <Reveal>
+          <Skills />
+        </Reveal>
+        <Reveal>
+          <Education />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
       <Footer />
     </>

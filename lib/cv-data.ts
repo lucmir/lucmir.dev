@@ -18,6 +18,8 @@ export const about = {
     "Before the AI focus, I spent 15+ years building and operating large-scale distributed systems: full-stack engineering across identity, payments, and on-chain credentials; cloud architecture on AWS with Kubernetes, Terraform, and GitOps; observability and incident response at scale.",
     "BSc + MSc in Computer Science from UFMG. Comfortable in TypeScript, Node.js, Python, React, and Next.js — and increasingly, in writing the agents that write the code.",
   ],
+  currently:
+    "Leading DevOps & infrastructure at Civic. Shipping MCP integrations, exploring advanced agent patterns and skill design.",
 } as const;
 
 export type ExperienceItem = {
