@@ -18,7 +18,7 @@ export function About() {
         <div className="max-w-3xl flex items-start gap-3 p-4 rounded-md border border-border bg-background-elevated">
           <span
             aria-hidden
-            className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(245,166,35,0.7)] animate-pulse shrink-0"
+            className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(16,185,129,0.7)] animate-pulse shrink-0"
           />
           <div className="space-y-1">
             <p className="font-mono text-xs text-foreground-subtle uppercase tracking-wider">

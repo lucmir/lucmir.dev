@@ -14,7 +14,7 @@ export default async function OpengraphImage() {
           width: "100%",
           height: "100%",
           background:
-            "radial-gradient(ellipse 70% 90% at 80% 30%, rgba(245, 166, 35, 0.18) 0%, rgba(10, 10, 11, 0) 60%), #0a0a0b",
+            "radial-gradient(ellipse 70% 90% at 80% 30%, rgba(16, 185, 129, 0.18) 0%, rgba(10, 10, 11, 0) 60%), #0a0a0b",
           color: "#f4f4f5",
           padding: "80px",
           display: "flex",
@@ -24,7 +24,7 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", color: "#a1a1aa", fontSize: 24 }}>
-          <span style={{ color: "#f5a623" }}>$</span>
+          <span style={{ color: "#10b981" }}>$</span>
           <span style={{ marginLeft: 12, fontFamily: "ui-monospace, monospace" }}>
             whoami
           </span>
@@ -77,7 +77,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>lucmir.dev</span>
-          <span style={{ color: "#f5a623" }}>● ● ●</span>
+          <span style={{ color: "#10b981" }}>● ● ●</span>
         </div>
       </div>
     ),
