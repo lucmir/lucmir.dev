@@ -26,6 +26,7 @@ export const about = {
 export type ExperienceItem = {
   company: string;
   monogram: string;
+  logo?: string;
   role: string;
   duration: string;
   location?: string;
@@ -37,6 +38,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Civic Technologies",
     monogram: "CT",
+    logo: "/logo-civic.png",
     role: "DevOps & Infrastructure Lead",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
@@ -52,6 +54,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Civic Technologies",
     monogram: "CT",
+    logo: "/logo-civic.png",
     role: "Full Stack Engineer",
     duration: "Nov 2018 — Apr 2025",
     location: "Belo Horizonte, Brazil",
@@ -78,6 +81,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "ThoughtWorks",
     monogram: "TW",
+    logo: "/logo-thoughtworks.png",
     role: "Developer Consultant",
     duration: "Jun 2016 — Nov 2018",
     location: "Greater Belo Horizonte",
@@ -90,6 +94,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Imaginie",
     monogram: "Im",
+    logo: "/logo-imaginie.png",
     role: "Software Engineer",
     duration: "Mar 2015 — Jun 2016",
     bullets: [
@@ -101,6 +106,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Samba Tech",
     monogram: "ST",
+    logo: "/logo-sambatech.png",
     role: "Software Engineer",
     duration: "Jan 2011 — Feb 2015",
     bullets: [
@@ -111,6 +117,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Samba Tech",
     monogram: "ST",
+    logo: "/logo-sambatech.png",
     role: "Software Developer Intern",
     duration: "Jan 2010 — Dec 2010",
     bullets: [],
@@ -118,6 +125,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Universidade Federal de Minas Gerais",
     monogram: "UF",
+    logo: "/logo-ufmg.svg",
     role: "Undergraduate Researcher",
     duration: "Jan 2008 — Dec 2009",
     bullets: [],

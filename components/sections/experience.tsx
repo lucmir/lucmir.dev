@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
 import { experience } from "@/lib/cv-data";
 
@@ -14,9 +15,19 @@ export function Experience() {
             <li key={i} className="relative">
               <span
                 aria-hidden
-                className="absolute -left-[58px] sm:-left-[74px] top-0 size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted"
+                className="absolute -left-[58px] sm:-left-[74px] top-0 size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted overflow-hidden"
               >
-                {job.monogram}
+                {job.logo ? (
+                  <Image
+                    src={job.logo}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="size-7 object-contain"
+                  />
+                ) : (
+                  job.monogram
+                )}
               </span>
               <div className="space-y-3">
                 <div className="space-y-1">
