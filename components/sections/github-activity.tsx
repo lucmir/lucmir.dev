@@ -142,33 +142,35 @@ export async function GithubActivity() {
                 )}
               </div>
 
-              {/* Legend */}
-              <div className="flex items-center justify-end gap-1.5 mt-3 font-mono text-[10px] text-foreground-subtle">
-                <span>Less</span>
-                {(
-                  [
-                    "NONE",
-                    "FIRST_QUARTILE",
-                    "SECOND_QUARTILE",
-                    "THIRD_QUARTILE",
-                    "FOURTH_QUARTILE",
-                  ] as ContributionLevel[]
-                ).map((lvl) => (
-                  <div
-                    key={lvl}
-                    className={`size-2.5 rounded-[2px] ${LEVEL_CLASS[lvl]}`}
-                    aria-hidden
-                  />
-                ))}
-                <span>More</span>
+              {/* Footer row: caption (left) + legend (right) */}
+              <div className="flex items-center justify-between gap-3 mt-4 font-mono text-[10px] text-foreground-subtle flex-wrap">
+                <span>
+                  includes private repo contributions · updates ~hourly
+                  {lastActive
+                    ? ` · last active ${relativeDayLabel(lastActive)}`
+                    : ""}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <span>Less</span>
+                  {(
+                    [
+                      "NONE",
+                      "FIRST_QUARTILE",
+                      "SECOND_QUARTILE",
+                      "THIRD_QUARTILE",
+                      "FOURTH_QUARTILE",
+                    ] as ContributionLevel[]
+                  ).map((lvl) => (
+                    <div
+                      key={lvl}
+                      className={`size-2.5 rounded-[2px] ${LEVEL_CLASS[lvl]}`}
+                      aria-hidden
+                    />
+                  ))}
+                  <span>More</span>
+                </div>
               </div>
             </div>
-
-            <p className="font-mono text-xs text-foreground-subtle">
-              <span className="text-accent">//</span> includes private repo
-              contributions · updates ~hourly
-              {lastActive ? ` · last active ${relativeDayLabel(lastActive)}` : ""}
-            </p>
           </div>
         ) : (
           <div className="rounded-md border border-border bg-background-elevated p-8">
