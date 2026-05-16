@@ -1,3 +1,4 @@
+import { BackToTop } from "@/components/back-to-top";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
@@ -31,6 +32,7 @@ export default function Home() {
         </Reveal>
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
