@@ -43,7 +43,16 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="group relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden border border-border-strong">
+          <div
+            className="group relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden"
+            style={{
+              boxShadow: [
+                "0 0 0 1px rgba(245, 166, 35, 0.25)",
+                "0 0 70px -10px rgba(245, 166, 35, 0.35)",
+                "0 20px 50px -20px rgba(0, 0, 0, 0.6)",
+              ].join(", "),
+            }}
+          >
             <Image
               src="/eu-profile.png"
               alt=""
