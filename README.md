@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lucmir.dev
 
-## Getting Started
+Personal site of **Lucas Cunha** — engineer building AI agents and the cloud infrastructure they run on.
 
-First, run the development server:
+![Screenshot of lucmir.dev](docs/screenshot.png)
+
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/) with CSS variables for theming
+- [Geist Sans / Geist Mono](https://vercel.com/font) via `next/font`
+- [lucide-react](https://lucide.dev) for icons
+- [Vercel Analytics](https://vercel.com/docs/analytics)
+- Hosted on [Vercel](https://vercel.com)
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build       # production build (Turbopack)
+pnpm start       # serve the build locally
+pnpm lint        # eslint
+```
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Variable                | Required | Purpose                                     |
+| ----------------------- | -------- | ------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`  | No       | Canonical site URL used in metadata, sitemap, and OG tags. Defaults to `https://lucmir.dev`. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+  layout.tsx              # root layout, metadata, JSON-LD Person schema, Analytics
+  page.tsx                # composes all sections
+  opengraph-image.tsx     # dynamically generated 1200x630 social card
+  sitemap.ts, robots.ts   # SEO metadata routes
+  not-found.tsx           # custom 404
+  icon.png, apple-icon.png
+components/
+  nav.tsx                 # sticky nav with mobile hamburger + section-active highlight
+  hero-photo.tsx          # hover/tap photo swap (smile ↔ serious)
+  reveal.tsx              # IntersectionObserver fade-up wrapper (respects prefers-reduced-motion)
+  brand-icons.tsx         # inlined GitHub / LinkedIn SVGs (lucide v1 dropped brand icons)
+  section-heading.tsx
+  sections/               # hero, about, experience, skills, education, contact
+lib/
+  cv-data.ts              # typed source of truth for all content
+public/
+  cert-*.jpg              # Anthropic certificate scans
+  logo-*.png|svg          # company logos in the experience timeline
+  eu-profile.png          # smiling portrait (hover state)
+  eu-serious.png          # default portrait
+  LucasCunha_cv.pdf       # downloadable CV
+docs/
+  screenshot.png
+```
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Auto-deploys to Vercel on every push to `main`. Preview URLs for PRs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To deploy manually:
+
+```bash
+pnpm dlx vercel --prod
+```
+
+## License
+
+MIT.
