@@ -1,6 +1,6 @@
 import { ArrowDown, Download, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { AsciiPhoto } from "@/components/ascii-photo";
 import { profile } from "@/lib/cv-data";
 
 export function Hero() {
@@ -43,12 +43,23 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden border border-border-strong">
-            <AsciiPhoto
+          <div className="group relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden border border-border-strong">
+            <Image
               src="/eu-profile.png"
+              alt=""
+              aria-hidden
+              width={479}
+              height={479}
+              priority
+              className="absolute inset-0 size-full object-cover"
+            />
+            <Image
+              src="/eu-serious.png"
               alt="Lucas Cunha"
               width={479}
               height={479}
+              priority
+              className="absolute inset-0 size-full object-cover transition-opacity duration-300 group-hover:opacity-0"
             />
           </div>
         </div>
