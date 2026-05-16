@@ -7,7 +7,6 @@ import { profile } from "@/lib/cv-data";
 
 const SECTIONS = [
   { id: "about", label: "About" },
-  { id: "activity", label: "Activity" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "education", label: "Education" },

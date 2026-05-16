@@ -113,72 +113,168 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-export const skills = {
-  topTier: [
-    "Claude Agent SDK",
-    "Model Context Protocol (MCP)",
-    "AI Agents",
-    "Claude API",
-    "Prompt Engineering",
-    "RAG",
-  ],
-  foundation: [
-    {
-      group: "Languages",
-      items: ["TypeScript", "JavaScript", "Python", "Node.js", "Java", "Ruby"],
-    },
-    {
-      group: "Frameworks",
-      items: ["Next.js", "React", "Express.js", "Django", "Spring MVC"],
-    },
-    {
-      group: "Cloud & Infra",
-      items: [
-        "AWS",
-        "EKS",
-        "Lambda",
-        "DynamoDB",
-        "S3",
-        "CloudFormation",
-        "Terraform",
-        "GCP",
-        "Vercel",
-      ],
-    },
-    {
-      group: "DevOps",
-      items: ["Kubernetes", "Docker", "GitHub Actions", "GitOps", "CI/CD"],
-    },
-    {
-      group: "Observability",
-      items: [
-        "Prometheus",
-        "Grafana",
-        "New Relic",
-        "CloudWatch",
-        "Distributed Tracing",
-      ],
-    },
-    {
-      group: "Other",
-      items: [
-        "Microservices",
-        "REST APIs",
-        "OAuth 2.0 / OIDC",
-        "Solana",
-        "EVM chains",
-      ],
-    },
-  ],
-} as const;
+export type Skill = { name: string; highlight?: boolean };
+export type SkillGroup = { name: string; items: Skill[] };
 
-export const certifications = [
-  "Claude Certified Architect — Foundations",
-  "Building with the Claude API",
-  "Claude Code in Action",
-  "Introduction to Model Context Protocol",
-  "Introduction to Agent Skills",
-] as const;
+export const skills: SkillGroup[] = [
+  {
+    name: "AI & Agents",
+    items: [
+      { name: "Claude Agent SDK", highlight: true },
+      { name: "Model Context Protocol (MCP)", highlight: true },
+      { name: "AI Agents", highlight: true },
+      { name: "Claude API", highlight: true },
+      { name: "Prompt Engineering", highlight: true },
+      { name: "RAG / Embeddings" },
+      { name: "Vector DBs" },
+    ],
+  },
+  {
+    name: "Cloud & Infra",
+    items: [
+      { name: "AWS", highlight: true },
+      { name: "EKS", highlight: true },
+      { name: "Kubernetes", highlight: true },
+      { name: "Docker", highlight: true },
+      { name: "CI/CD", highlight: true },
+      { name: "GitHub Actions", highlight: true },
+      { name: "Helm", highlight: true },
+      { name: "Vercel", highlight: true },
+      { name: "Redshift", highlight: true },
+      { name: "CloudFront", highlight: true },
+      { name: "RDS", highlight: true },
+      { name: "WAF", highlight: true },
+      { name: "Lambda", highlight: true },
+      { name: "DynamoDB", highlight: true },
+      { name: "S3", highlight: true },
+      { name: "CloudFormation", highlight: true },
+      { name: "EC2", highlight: true },
+      { name: "Kinesis" },
+      { name: "Terraform" },
+      { name: "GitOps" },
+      { name: "GCP" },
+    ],
+  },
+  {
+    name: "Languages",
+    items: [
+      { name: "TypeScript", highlight: true },
+      { name: "JavaScript", highlight: true },
+      { name: "Node.js", highlight: true },
+      { name: "Python", highlight: true },
+      { name: "Bash", highlight: true },
+      { name: "Java" },
+      { name: "Ruby" },
+    ],
+  },
+  {
+    name: "Frameworks",
+    items: [
+      { name: "Next.js", highlight: true },
+      { name: "React", highlight: true },
+      { name: "Express", highlight: true },
+      { name: "Django", highlight: true },
+      { name: "Tailwind CSS" },
+      { name: "FastAPI" },
+      { name: "Flask" },
+      { name: "Hono" },
+      { name: "Fastify" },
+      { name: "Ruby on Rails" },
+      { name: "Spring MVC" },
+    ],
+  },
+  {
+    name: "Observability",
+    items: [
+      { name: "Prometheus", highlight: true },
+      { name: "Grafana", highlight: true },
+      { name: "New Relic", highlight: true },
+      { name: "CloudWatch", highlight: true },
+      { name: "OpenTelemetry", highlight: true },
+      { name: "Distributed tracing (Jaeger, Tempo)" },
+      { name: "Loki" },
+      { name: "Datadog" },
+    ],
+  },
+  {
+    name: "Architecture & APIs",
+    items: [
+      { name: "Microservices", highlight: true },
+      { name: "REST APIs", highlight: true },
+      { name: "Event-driven (Kafka, SNS/SQS, EventBridge)", highlight: true },
+      { name: "API Gateway / Kong" },
+    ],
+  },
+  {
+    name: "Identity & Web3",
+    items: [
+      { name: "OAuth 2.0 / OIDC", highlight: true },
+      { name: "JWT", highlight: true },
+      { name: "Solana" },
+      { name: "EVM chains" },
+    ],
+  },
+  {
+    name: "Engineering Practice",
+    items: [
+      { name: "System Design", highlight: true },
+      { name: "API Design", highlight: true },
+      { name: "Agile / Scrum", highlight: true },
+      { name: "Technical Leadership", highlight: true },
+      { name: "Mentoring", highlight: true },
+      { name: "Code Review", highlight: true },
+      { name: "Incident Response", highlight: true },
+      { name: "Architecture Reviews", highlight: true },
+      { name: "Cross-team Collaboration", highlight: true },
+      { name: "Technical Documentation", highlight: true },
+      { name: "Cost Optimization" },
+      { name: "Capacity Planning" },
+      { name: "On-call" },
+      { name: "TDD" },
+    ],
+  },
+];
+
+export type Certification = {
+  name: string;
+  image: string;
+  verifyUrl: string;
+  featured?: boolean;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: "Claude Certified Architect — Foundations",
+    image: "/cert-claude-architect.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/yc8hooebqxjx",
+    featured: true,
+  },
+  {
+    name: "Building with the Claude API",
+    image: "/cert-claude-api.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/tucskw4odr9j",
+  },
+  {
+    name: "Claude Code in Action",
+    image: "/cert-claude-code-in-action.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/doafui6gzfvh",
+  },
+  {
+    name: "Introduction to Model Context Protocol",
+    image: "/cert-intro-mcp.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/u28t79x6qq36",
+  },
+  {
+    name: "Introduction to Agent Skills",
+    image: "/cert-intro-agent-skills.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/6mhuiuidkkv6",
+  },
+  {
+    name: "Claude with Amazon Bedrock",
+    image: "/cert-claude-bedrock.jpg",
+    verifyUrl: "https://verify.skilljar.com/c/4snqgtfcp4b6",
+  },
+];
 
 export const education = [
   {

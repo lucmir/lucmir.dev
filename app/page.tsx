@@ -4,7 +4,6 @@ import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Education } from "@/components/sections/education";
 import { Experience } from "@/components/sections/experience";
-import { GithubActivity } from "@/components/sections/github-activity";
 import { Hero } from "@/components/sections/hero";
 import { Skills } from "@/components/sections/skills";
 
@@ -15,7 +14,6 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
-        <GithubActivity />
         <Experience />
         <Skills />
         <Education />
