@@ -47,7 +47,7 @@ export function Hero() {
             <Image
               src="/eu-profile.png"
               alt="Lucas Cunha"
-              width={527}
+              width={479}
               height={479}
               priority
               className="object-cover size-full"
