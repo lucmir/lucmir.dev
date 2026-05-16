@@ -40,6 +40,15 @@ export function Hero() {
               Get in touch
             </Link>
           </div>
+
+          <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 font-mono text-xs text-foreground-subtle">
+            {profile.stats.map((stat, i) => (
+              <li key={stat} className="flex items-center gap-3">
+                {i > 0 ? <span aria-hidden>·</span> : null}
+                <span>{stat}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="order-1 md:order-2 flex justify-center md:justify-end">

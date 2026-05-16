@@ -9,13 +9,15 @@ export function Experience() {
     >
       <div className="space-y-12">
         <SectionHeading label="// experience" title="Where I've built things" />
-        <ol className="relative border-l border-border pl-6 sm:pl-8 space-y-12">
+        <ol className="relative border-l border-border pl-10 sm:pl-14 space-y-12">
           {experience.map((job, i) => (
             <li key={i} className="relative">
               <span
                 aria-hidden
-                className="absolute -left-[33px] sm:-left-[41px] top-1.5 size-3 rounded-full bg-accent ring-4 ring-background"
-              />
+                className="absolute -left-[36px] sm:-left-[52px] -top-1 size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted"
+              >
+                {job.monogram}
+              </span>
               <div className="space-y-3">
                 <div className="space-y-1">
                   <h3 className="text-xl sm:text-2xl font-semibold text-foreground">

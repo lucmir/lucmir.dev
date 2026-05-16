@@ -10,6 +10,12 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/lucmir",
   },
   cvUrl: "/LucasCunha_cv.pdf",
+  stats: [
+    "15+ years",
+    "5 companies",
+    "1M+ identity passes issued",
+    "95+ AI tool integrations",
+  ],
 } as const;
 
 export const about = {
@@ -24,6 +30,7 @@ export const about = {
 
 export type ExperienceItem = {
   company: string;
+  monogram: string;
   role: string;
   duration: string;
   location?: string;
@@ -34,6 +41,7 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     company: "Civic Technologies",
+    monogram: "CT",
     role: "DevOps & Infrastructure Lead",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
@@ -48,6 +56,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Civic Technologies",
+    monogram: "CT",
     role: "Full Stack Engineer",
     duration: "Nov 2018 — Apr 2025",
     location: "Belo Horizonte, Brazil",
@@ -73,6 +82,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "ThoughtWorks",
+    monogram: "TW",
     role: "Developer Consultant",
     duration: "Jun 2016 — Nov 2018",
     location: "Greater Belo Horizonte",
@@ -84,6 +94,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Imaginie",
+    monogram: "Im",
     role: "Software Engineer",
     duration: "Mar 2015 — Jun 2016",
     bullets: [
@@ -94,6 +105,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Samba Tech",
+    monogram: "ST",
     role: "Software Engineer",
     duration: "Jan 2011 — Feb 2015",
     bullets: [
@@ -103,12 +115,14 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Samba Tech",
+    monogram: "ST",
     role: "Software Developer Intern",
     duration: "Jan 2010 — Dec 2010",
     bullets: [],
   },
   {
     company: "Universidade Federal de Minas Gerais",
+    monogram: "UF",
     role: "Undergraduate Researcher",
     duration: "Jan 2008 — Dec 2009",
     bullets: [],

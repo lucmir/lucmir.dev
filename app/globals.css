@@ -31,7 +31,18 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 20% 0%,
+      rgba(16, 185, 129, 0.05),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle,
+      rgba(244, 244, 245, 0.035) 1px,
+      transparent 1px
+    ) 0 0 / 24px 24px,
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-feature-settings: "ss01", "cv11";
