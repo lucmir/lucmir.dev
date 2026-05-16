@@ -43,7 +43,7 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="relative size-56 sm:size-64 md:size-72 rounded-md overflow-hidden border border-border-strong">
+          <div className="relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden border border-border-strong">
             <Image
               src="/eu-profile.png"
               alt="Lucas Cunha"
