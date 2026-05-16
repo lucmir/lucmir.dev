@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { GithubIcon } from "@/components/brand-icons";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { profile } from "@/lib/cv-data";
 
 const SECTIONS = [
@@ -77,6 +77,15 @@ export function Nav() {
               </li>
             ))}
           </ul>
+          <a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="LinkedIn profile"
+            className="p-2 rounded-md text-foreground-muted hover:text-foreground hover:bg-background-elevated transition-colors"
+          >
+            <LinkedinIcon className="size-5" />
+          </a>
           <a
             href={profile.links.github}
             target="_blank"

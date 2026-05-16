@@ -1,15 +1,19 @@
-import { Mail, MapPin } from "lucide-react";
+"use client";
+
+import { Check, Copy, MapPin } from "lucide-react";
+import { useState, type SVGProps } from "react";
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { SectionHeading } from "@/components/section-heading";
 import { profile } from "@/lib/cv-data";
 
-const links = [
-  {
-    label: "Email",
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    icon: Mail,
-  },
+type LinkCard = {
+  label: string;
+  value: string;
+  href: string;
+  icon: (props: SVGProps<SVGSVGElement>) => React.ReactElement;
+};
+
+const externalLinks: LinkCard[] = [
   {
     label: "LinkedIn",
     value: "in/lucmir",
@@ -25,6 +29,19 @@ const links = [
 ];
 
 export function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard write may fail in unusual contexts; the email is visible
+      // for manual copy as a fallback
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -33,19 +50,39 @@ export function Contact() {
       <div className="space-y-10">
         <SectionHeading label="// contact" title="Let's talk" />
 
-        <p className="text-base sm:text-lg text-foreground-muted max-w-2xl leading-relaxed">
-          Open to senior engineering roles building AI agents, agent
-          infrastructure, or developer platforms. The fastest way to reach me is
-          email.
-        </p>
-
         <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {links.map(({ label, value, href, icon: Icon }) => (
+          <li>
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={copied ? "Email copied" : "Copy email to clipboard"}
+              className="group block w-full text-left p-5 rounded-md border border-border bg-background-elevated hover:border-accent hover:bg-background transition-colors cursor-pointer"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <span className="font-mono text-sm text-foreground-subtle">
+                  Email
+                </span>
+                {copied ? (
+                  <span className="flex items-center gap-1 font-mono text-xs text-accent">
+                    <Check className="size-3.5" />
+                    copied
+                  </span>
+                ) : (
+                  <Copy className="size-4 text-foreground-subtle group-hover:text-accent transition-colors" />
+                )}
+              </div>
+              <p className="mt-2 text-foreground group-hover:text-accent transition-colors break-all">
+                {profile.email}
+              </p>
+            </button>
+          </li>
+
+          {externalLinks.map(({ label, value, href, icon: Icon }) => (
             <li key={label}>
               <a
                 href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
+                target="_blank"
+                rel="noreferrer noopener"
                 className="group block p-5 rounded-md border border-border bg-background-elevated hover:border-accent hover:bg-background transition-colors"
               >
                 <div className="flex items-center gap-3">
