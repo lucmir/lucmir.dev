@@ -57,17 +57,17 @@ export function Experience() {
           {experience.map((job, i) => {
             const parsed = parseDuration(job.duration, now);
             return (
-              <li key={i} className="relative">
+              <li key={i} className="relative group">
                 <div
                   aria-hidden
                   className="absolute -left-[58px] sm:-left-[74px] top-0 flex flex-col items-center gap-1.5"
                 >
                   {parsed ? (
-                    <span className="font-mono text-[10px] text-foreground-subtle tabular-nums">
+                    <span className="font-mono text-[10px] text-foreground-subtle group-hover:text-accent transition-colors tabular-nums">
                       {parsed.startYear}
                     </span>
                   ) : null}
-                  <span className="size-9 rounded-md bg-background-elevated border border-border flex items-center justify-center font-mono text-xs font-medium text-foreground-muted overflow-hidden">
+                  <span className="size-9 rounded-md bg-background-elevated border border-border group-hover:border-accent/60 group-hover:bg-accent/5 transition-colors flex items-center justify-center font-mono text-xs font-medium text-foreground-muted overflow-hidden">
                     {job.logo ? (
                       <Image
                         src={job.logo}
