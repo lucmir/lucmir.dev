@@ -2,6 +2,7 @@ import { BackToTop } from "@/components/back-to-top";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Education } from "@/components/sections/education";
@@ -37,6 +38,7 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
+      <ScrollProgress />
     </>
   );
 }

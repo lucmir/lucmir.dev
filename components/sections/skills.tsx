@@ -10,7 +10,11 @@ export function Skills() {
       className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
     >
       <div className="space-y-12">
-        <SectionHeading label="// skills" title="What I work with" />
+        <SectionHeading
+          label="// skills"
+          title="What I work with"
+          anchorId="skills"
+        />
 
         <p className="text-sm text-foreground-muted">
           Items in{" "}

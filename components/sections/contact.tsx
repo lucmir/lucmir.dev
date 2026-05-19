@@ -48,7 +48,11 @@ export function Contact() {
       className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
     >
       <div className="space-y-10">
-        <SectionHeading label="// contact" title="Let's talk" />
+        <SectionHeading
+          label="// contact"
+          title="Let's talk"
+          anchorId="contact"
+        />
 
         <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <li>

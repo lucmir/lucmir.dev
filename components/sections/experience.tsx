@@ -52,7 +52,11 @@ export function Experience() {
       className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
     >
       <div className="space-y-12">
-        <SectionHeading label="// experience" title="Where I've built things" />
+        <SectionHeading
+          label="// experience"
+          title="Where I've built things"
+          anchorId="experience"
+        />
         <ol className="relative border-l border-border pl-10 sm:pl-14 space-y-12">
           {experience.map((job, i) => {
             const parsed = parseDuration(job.duration, now);

@@ -9,7 +9,11 @@ export function Education() {
       className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
     >
       <div className="space-y-8">
-        <SectionHeading label="// education" title="Where I learned the fundamentals" />
+        <SectionHeading
+          label="// education"
+          title="Where I learned the fundamentals"
+          anchorId="education"
+        />
         <ul className="space-y-4">
           {education.map((e, i) => (
             <li

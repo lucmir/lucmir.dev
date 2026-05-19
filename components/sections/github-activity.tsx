@@ -11,7 +11,11 @@ export async function GithubActivity() {
       className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
     >
       <div className="space-y-8">
-        <SectionHeading label="// activity" title="Live from GitHub" />
+        <SectionHeading
+          label="// activity"
+          title="Live from GitHub"
+          anchorId="activity"
+        />
 
         {data ? (
           <div className="space-y-6">
