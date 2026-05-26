@@ -7,9 +7,9 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
+      className="max-w-5xl mx-auto px-6 sm:px-8 py-12 sm:py-16 scroll-mt-20"
     >
-      <div className="space-y-12">
+      <div className="rounded-2xl border border-border/70 bg-foreground/[0.015] p-6 sm:p-10 lg:p-12 space-y-12">
         <SectionHeading
           label="// skills"
           title="What I work with"

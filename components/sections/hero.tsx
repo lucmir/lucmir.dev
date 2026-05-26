@@ -14,7 +14,7 @@ export function Hero() {
           <p className="font-mono text-sm text-foreground-subtle">
             <span className="text-accent">$</span> whoami
           </p>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[0.95]">
             {profile.name}
           </h1>
           <p className="text-xl sm:text-2xl text-foreground leading-snug max-w-xl">

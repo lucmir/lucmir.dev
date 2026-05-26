@@ -5,9 +5,9 @@ export function About() {
   return (
     <section
       id="about"
-      className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
+      className="max-w-5xl mx-auto px-6 sm:px-8 py-12 sm:py-16 scroll-mt-20"
     >
-      <div className="space-y-8">
+      <div className="rounded-2xl border border-border/70 bg-foreground/[0.015] p-6 sm:p-10 lg:p-12 space-y-8">
         <SectionHeading
           label="// about"
           title="A short introduction"
@@ -19,7 +19,7 @@ export function About() {
           ))}
         </div>
 
-        <div className="flex items-start gap-3 p-4 rounded-md border border-border bg-background-elevated">
+        <div className="flex items-start gap-3 border-l-2 border-accent/60 pl-4 py-1">
           <span
             aria-hidden
             className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(16,185,129,0.7)] animate-pulse shrink-0"
