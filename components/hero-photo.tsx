@@ -26,8 +26,8 @@ export function HeroPhoto() {
       className="group relative size-56 sm:size-64 md:size-72 rounded-full overflow-hidden cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       style={{
         boxShadow: [
-          "0 0 0 1px rgba(250, 189, 47, 0.25)",
-          "0 0 70px -10px rgba(250, 189, 47, 0.35)",
+          "0 0 0 1px rgba(203, 166, 247, 0.25)",
+          "0 0 70px -10px rgba(203, 166, 247, 0.35)",
           "0 20px 50px -20px rgba(0, 0, 0, 0.6)",
         ].join(", "),
       }}

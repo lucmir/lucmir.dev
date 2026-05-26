@@ -22,7 +22,7 @@ export function About() {
         <div className="flex items-start gap-3 border-l-2 border-accent/60 pl-4 py-1">
           <span
             aria-hidden
-            className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(250,189,47,0.7)] animate-pulse shrink-0"
+            className="mt-1.5 inline-block size-2 rounded-full bg-accent shadow-[0_0_8px_rgba(203,166,247,0.7)] animate-pulse shrink-0"
           />
           <div className="space-y-1">
             <p className="font-mono text-xs text-foreground-subtle uppercase tracking-wider">

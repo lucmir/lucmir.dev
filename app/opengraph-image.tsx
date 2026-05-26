@@ -19,7 +19,7 @@ export default async function OpengraphImage() {
           width: "100%",
           height: "100%",
           background:
-            "radial-gradient(ellipse 70% 90% at 80% 30%, rgba(250, 189, 47, 0.18) 0%, rgba(40, 40, 40, 0) 60%), #282828",
+            "radial-gradient(ellipse 70% 90% at 80% 30%, rgba(203, 166, 247, 0.18) 0%, rgba(30, 30, 46, 0) 60%), #1e1e2e",
           color: "#f4f4f5",
           padding: "70px 80px",
           display: "flex",
@@ -30,7 +30,7 @@ export default async function OpengraphImage() {
       >
         {/* Header row */}
         <div style={{ display: "flex", color: "#a1a1aa", fontSize: 22 }}>
-          <span style={{ color: "#fabd2f" }}>$</span>
+          <span style={{ color: "#cba6f7" }}>$</span>
           <span style={{ marginLeft: 10, fontFamily: "ui-monospace, monospace" }}>
             whoami
           </span>
@@ -100,9 +100,9 @@ export default async function OpengraphImage() {
             style={{
               borderRadius: 160,
               objectFit: "cover",
-              border: "1px solid rgba(250, 189, 47, 0.25)",
+              border: "1px solid rgba(203, 166, 247, 0.25)",
               boxShadow:
-                "0 0 60px -8px rgba(250, 189, 47, 0.35), 0 20px 40px -16px rgba(0, 0, 0, 0.6)",
+                "0 0 60px -8px rgba(203, 166, 247, 0.35), 0 20px 40px -16px rgba(0, 0, 0, 0.6)",
             }}
           />
         </div>
@@ -119,7 +119,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>lucas-cunha.com</span>
-          <span style={{ color: "#fabd2f" }}>● ● ●</span>
+          <span style={{ color: "#cba6f7" }}>● ● ●</span>
         </div>
       </div>
     ),

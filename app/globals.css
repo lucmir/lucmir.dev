@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Gruvbox Dark palette — yellow accent (harmonizes with photo bokeh) */
-  --background: #282828;
-  --background-elevated: #3c3836;
-  --foreground: #ebdbb2;
-  --foreground-muted: #bdae93;
-  --foreground-subtle: #928374;
-  --border: #3c3836;
-  --border-strong: #504945;
-  --accent: #fabd2f;
-  --accent-muted: #d79921;
+  /* Catppuccin Mocha palette — mauve accent */
+  --background: #1e1e2e;
+  --background-elevated: #313244;
+  --foreground: #cdd6f4;
+  --foreground-muted: #bac2de;
+  --foreground-subtle: #6c7086;
+  --border: #313244;
+  --border-strong: #45475a;
+  --accent: #cba6f7;
+  --accent-muted: #a584e0;
 }
 
 @theme inline {
