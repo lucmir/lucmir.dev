@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0b;
-  --background-elevated: #131316;
-  --foreground: #f4f4f5;
-  --foreground-muted: #a1a1aa;
-  --foreground-subtle: #71717a;
-  --border: #27272a;
-  --border-strong: #3f3f46;
-  --accent: #10b981;
-  --accent-muted: #047857;
+  /* Gruvbox Dark palette — yellow accent (harmonizes with photo bokeh) */
+  --background: #282828;
+  --background-elevated: #3c3836;
+  --foreground: #ebdbb2;
+  --foreground-muted: #bdae93;
+  --foreground-subtle: #928374;
+  --border: #3c3836;
+  --border-strong: #504945;
+  --accent: #fabd2f;
+  --accent-muted: #d79921;
 }
 
 @theme inline {

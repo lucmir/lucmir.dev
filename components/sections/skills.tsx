@@ -19,7 +19,7 @@ export function Skills() {
         <p className="text-sm text-foreground-muted">
           Items in{" "}
           <span className="px-2 py-0.5 rounded-md bg-accent/10 border border-accent/30 text-accent text-xs font-medium">
-            green
+            yellow
           </span>{" "}
           are where I'm most experienced; the rest is solid working knowledge.
         </p>

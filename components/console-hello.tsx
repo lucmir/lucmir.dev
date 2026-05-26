@@ -9,7 +9,7 @@ export function ConsoleHello() {
     if ((window as unknown as { __helloLogged?: boolean }).__helloLogged) return;
     (window as unknown as { __helloLogged?: boolean }).__helloLogged = true;
 
-    const accent = "color: #10b981; font-weight: 600;";
+    const accent = "color: #fabd2f; font-weight: 600;";
     const muted = "color: #a1a1aa;";
     const mono = "font-family: ui-monospace, monospace;";
 
