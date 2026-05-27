@@ -2,9 +2,72 @@ import { Download, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { GithubIcon } from "@/components/brand-icons";
-import { profile } from "@/lib/cv-data";
+import {
+  CompanyTimeline,
+  type TimelineSpan,
+} from "@/components/company-timeline";
+import { experience, profile } from "@/lib/cv-data";
+
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+function parseMonthYear(s: string, now: Date): Date | null {
+  if (/present|now/i.test(s)) return now;
+  const m = s.match(/(\w+)\s+(\d{4})/);
+  if (!m) return null;
+  return new Date(Number(m[2]), Math.max(0, MONTHS.indexOf(m[1])), 1);
+}
+
+/** Aggregate experience entries by company. Multiple roles at the same
+ * company collapse into a single span (earliest start → latest end). */
+function getCompanySpans(now: Date) {
+  const byCompany = new Map<string, { start: Date; end: Date }>();
+  for (const job of experience) {
+    const [startRaw, endRaw] = job.duration.split(/\s*[—–-]\s*/);
+    const start = parseMonthYear(startRaw, now);
+    const end = endRaw ? parseMonthYear(endRaw, now) : now;
+    if (!start || !end) continue;
+    const existing = byCompany.get(job.company);
+    if (existing) {
+      if (start < existing.start) existing.start = start;
+      if (end > existing.end) existing.end = end;
+    } else {
+      byCompany.set(job.company, { start, end });
+    }
+  }
+  return Array.from(byCompany.entries())
+    .map(([company, { start, end }]) => ({
+      company,
+      start,
+      end,
+      months:
+        (end.getFullYear() - start.getFullYear()) * 12 +
+        (end.getMonth() - start.getMonth()),
+    }))
+    .filter((s) => s.months > 0)
+    .sort((a, b) => a.start.getTime() - b.start.getTime());
+}
+
+// Display-name overrides for the tiny tooltip — full names live in
+// cv-data.ts for formal use elsewhere.
+const SHORT_NAMES: Record<string, string> = {
+  "Universidade Federal de Minas Gerais": "UFMG",
+};
 
 export function Hero() {
+  const now = new Date();
+  const spans = getCompanySpans(now);
+  const totalMonths = spans.reduce((s, x) => s + x.months, 0) || 1;
+  const timeline: TimelineSpan[] = spans.map((s) => ({
+    company: SHORT_NAMES[s.company] ?? s.company,
+    years: s.months / 12,
+    yearStart: s.start.getFullYear(),
+    yearEnd: s.end >= now ? "now" : s.end.getFullYear(),
+    widthPercent: (s.months / totalMonths) * 100,
+  }));
+
   return (
     <section
       id="top"
@@ -116,20 +179,9 @@ export function Hero() {
             <span>companies</span><span>career</span>
           </div>
           <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
-            5
+            {spans.length}
           </div>
-          <svg className="w-full h-6 mt-2.5 block" viewBox="0 0 100 30" preserveAspectRatio="none">
-            <path
-              fill="var(--accent-soft)"
-              d="M0,28 L8,22 L18,24 L28,16 L40,12 L52,14 L64,10 L76,6 L88,8 L100,4 L100,30 L0,30 Z"
-            />
-            <path
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="1.4"
-              d="M0,28 L8,22 L18,24 L28,16 L40,12 L52,14 L64,10 L76,6 L88,8 L100,4"
-            />
-          </svg>
+          <CompanyTimeline spans={timeline} />
         </div>
 
         <div className="p-4 sm:p-5">
