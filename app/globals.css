@@ -1,70 +1,116 @@
 @import "tailwindcss";
 
+/* ────────────────────────────────────────────────────────────────
+   Color tokens — green-accent, dark by default, light via toggle.
+   - No [data-theme] attribute → follow system (prefers-color-scheme)
+   - [data-theme="dark"]  → force dark
+   - [data-theme="light"] → force light
+   ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Catppuccin Mocha palette — mauve accent */
-  --background: #1e1e2e;
-  --background-elevated: #313244;
-  --foreground: #cdd6f4;
-  --foreground-muted: #bac2de;
-  --foreground-subtle: #6c7086;
-  --border: #313244;
-  --border-strong: #45475a;
-  --accent: #cba6f7;
-  --accent-muted: #a584e0;
+  /* Dark (default) */
+  --background:          #0a0e0c;
+  --background-elevated: #11171a;
+  --background-card:     #0d1316;
+  --background-card-hi:  #131b1f;
+  --foreground:          #c5d1cb;
+  --foreground-strong:   #e6efe9;
+  --foreground-muted:    #7a8783;
+  --foreground-subtle:   #4f5a55;
+  --border:              #1b2429;
+  --border-strong:       #283238;
+  --accent:              #4ade80;
+  --accent-soft:         rgba(74, 222, 128, 0.10);
+  --info:                #60a5fa;
+  --info-soft:           rgba(96, 165, 250, 0.10);
 }
 
+/* Light when system requests it AND user hasn't forced dark */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --background:          #f4f5f3;
+    --background-elevated: #ffffff;
+    --background-card:     #fbfbfa;
+    --background-card-hi:  #eef0ec;
+    --foreground:          #1f2a25;
+    --foreground-strong:   #0a0f0c;
+    --foreground-muted:    #5e6a64;
+    --foreground-subtle:   #8c948f;
+    --border:              #dadcd6;
+    --border-strong:       #c1c4bd;
+  }
+}
+
+/* Explicit light override (toggle clicked) */
+html[data-theme="light"] {
+  --background:          #f4f5f3;
+  --background-elevated: #ffffff;
+  --background-card:     #fbfbfa;
+  --background-card-hi:  #eef0ec;
+  --foreground:          #1f2a25;
+  --foreground-strong:   #0a0f0c;
+  --foreground-muted:    #5e6a64;
+  --foreground-subtle:   #8c948f;
+  --border:              #dadcd6;
+  --border-strong:       #c1c4bd;
+}
+
+/* Tailwind v4 theme tokens — map CSS vars to utility classes */
 @theme inline {
-  --color-background: var(--background);
+  --color-background:          var(--background);
   --color-background-elevated: var(--background-elevated);
-  --color-foreground: var(--foreground);
-  --color-foreground-muted: var(--foreground-muted);
-  --color-foreground-subtle: var(--foreground-subtle);
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
-  --color-accent: var(--accent);
-  --color-accent-muted: var(--accent-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background-card:     var(--background-card);
+  --color-background-card-hi:  var(--background-card-hi);
+  --color-foreground:          var(--foreground);
+  --color-foreground-strong:   var(--foreground-strong);
+  --color-foreground-muted:    var(--foreground-muted);
+  --color-foreground-subtle:   var(--foreground-subtle);
+  --color-border:              var(--border);
+  --color-border-strong:       var(--border-strong);
+  --color-accent:              var(--accent);
+  --color-accent-soft:         var(--accent-soft);
+  --color-info:                var(--info);
+  --color-info-soft:           var(--info-soft);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
-html {
-  color-scheme: dark;
-}
+html { color-scheme: light dark; }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-plex-mono), ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 13.5px;
+  line-height: 1.55;
+  font-feature-settings: "zero", "ss01";
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Soft ambient gradient pinned to the viewport.
-   Position fixed prevents compositor seams from sections that use
-   transform/will-change (like the Reveal animation wrappers). */
+/* Subtle grid background */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background: radial-gradient(
-    ellipse 90% 70% at 20% -10%,
-    rgba(16, 185, 129, 0.07),
-    transparent 70%
-  );
+  content:""; position: fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    linear-gradient(to right,  rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) body::before,
+  html[data-theme="light"] body::before {
+    background-image:
+      linear-gradient(to right,  rgba(0,0,0,.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,.025) 1px, transparent 1px);
+  }
+}
+html[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(to right,  rgba(0,0,0,.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.025) 1px, transparent 1px);
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--background);
-}
-
-* {
-  scrollbar-color: var(--border-strong) transparent;
-}
+::selection { background: var(--accent); color: var(--background); }
+* { scrollbar-color: var(--border-strong) transparent; }

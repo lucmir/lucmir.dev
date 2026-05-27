@@ -1,17 +1,19 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -36,14 +38,15 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
+  alternates: { canonical: SITE_URL },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e1e2e",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f5f3" },
+    { media: "(prefers-color-scheme: dark)",  color: "#0a0e0c" },
+  ],
+  colorScheme: "light dark",
 };
 
 const personJsonLd = {
@@ -81,16 +84,33 @@ const personJsonLd = {
   },
 };
 
+/* Inline script: applies saved theme override BEFORE first paint, so dark
+   mode users don't see a light flash (and vice-versa). Must be inline + run
+   in <head>. Keeps in sync with components/theme-toggle.tsx. */
+const themeInitScript = `
+try {
+  var t = localStorage.getItem('lc-theme');
+  if (t === 'light' || t === 'dark') {
+    document.documentElement.setAttribute('data-theme', t);
+  }
+} catch (e) {}
+`;
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: needs to run pre-hydration
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />

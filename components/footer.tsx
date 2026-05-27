@@ -2,23 +2,12 @@ import { profile } from "@/lib/cv-data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-12">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm font-mono text-foreground-subtle">
+    <footer className="border-t border-border mt-6">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] font-mono text-foreground-subtle uppercase tracking-[0.12em]">
         <p>
-          <span className="text-accent">©</span> {new Date().getFullYear()}{" "}
-          {profile.name}
+          <span className="text-accent">©</span> {new Date().getFullYear()} {profile.name.toLowerCase()}
         </p>
-        <p>
-          Built with Next.js + Tailwind ·{" "}
-          <a
-            href="https://github.com/lucmir/lucmir.dev"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="hover:text-accent transition-colors"
-          >
-            source
-          </a>
-        </p>
+        <p>belo horizonte · utc−3</p>
       </div>
     </footer>
   );

@@ -4,6 +4,7 @@ import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { About } from "@/components/sections/about";
+import { Certifications } from "@/components/sections/certifications";
 import { Contact } from "@/components/sections/contact";
 import { Education } from "@/components/sections/education";
 import { Experience } from "@/components/sections/experience";
@@ -28,6 +29,9 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Skills />
+        </Reveal>
+        <Reveal>
+          <Certifications />
         </Reveal>
         <Reveal>
           <Education />

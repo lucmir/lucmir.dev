@@ -1,39 +1,47 @@
-import { GraduationCap } from "lucide-react";
-import { SectionHeading } from "@/components/section-heading";
+import { SectionHead } from "@/components/sections/about";
 import { education } from "@/lib/cv-data";
 
 export function Education() {
   return (
     <section
       id="education"
-      className="max-w-5xl mx-auto px-6 sm:px-8 py-16 sm:py-24 scroll-mt-20"
+      className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <div className="space-y-8">
-        <SectionHeading
-          label="// education"
-          title="Where I learned the fundamentals"
-          anchorId="education"
-        />
-        <ul className="space-y-4">
-          {education.map((e, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-4 p-5 rounded-md border border-border bg-background-elevated"
+      <SectionHead idx="05" name="education" aside="ufmg · 2 degrees" />
+
+      <div className="border border-border bg-background-card">
+        {education.map((e, i) => {
+          const isLast = i === education.length - 1;
+          return (
+            <div
+              key={`${e.school}-${e.degree}-${i}`}
+              className={`grid grid-cols-1 md:grid-cols-[120px_1fr_auto] gap-3 md:gap-6 px-5 py-4 items-baseline ${
+                isLast ? "" : "border-b border-border"
+              }`}
             >
-              <GraduationCap className="size-5 text-accent mt-0.5 shrink-0" />
-              <div className="space-y-1">
-                <p className="text-lg font-medium text-foreground">
-                  {e.degree} · {e.field}
-                </p>
-                <p className="text-foreground-muted">{e.school}</p>
-                <p className="font-mono text-sm text-foreground-subtle">
-                  {e.duration}
-                </p>
+              <div className="font-mono text-[12px] text-accent">
+                {e.duration.replace(/[—–-]/g, "→")}
               </div>
-            </li>
-          ))}
-        </ul>
+              <div>
+                <div className="font-sans text-base text-foreground-strong font-semibold">
+                  {e.school}
+                </div>
+                <div className="text-[12px] text-foreground-muted mt-0.5">
+                  {abbreviateDegree(e.degree)} · {e.field}
+                </div>
+              </div>
+              <div className="font-mono text-[11.5px] text-foreground-muted">UFMG · BR</div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
+}
+
+function abbreviateDegree(d: string) {
+  if (/master/i.test(d)) return "M.Sc";
+  if (/bachelor/i.test(d)) return "B.Sc";
+  if (/phd|doctor/i.test(d)) return "Ph.D";
+  return d;
 }
