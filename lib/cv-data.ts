@@ -265,7 +265,8 @@ export const certifications: Certification[] = [
   {
     name: "Claude Certified Architect — Foundations",
     image: "/cert-claude-architect.jpg",
-    verifyUrl: "https://verify.skilljar.com/c/yc8hooebqxjx",
+    verifyUrl:
+      "https://www.credly.com/badges/a4c6bbba-52ff-4639-a26d-52d3d967477a/linked_in_profile",
     featured: true,
   },
   {
