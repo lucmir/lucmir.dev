@@ -5,15 +5,18 @@ import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
 
+/* Weights are trimmed to what the UI actually uses (400/500/600) — nothing
+   renders at 300 or 700; bold-ish accents are font-semibold. Re-add a weight
+   here if a new design element needs it. */
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
 });
 

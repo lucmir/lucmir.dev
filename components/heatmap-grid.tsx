@@ -93,6 +93,11 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
 
   return (
     <div ref={containerRef} className="relative">
+      {/* Screen-reader summary; the visual grid below is described per-cell */}
+      <p className="sr-only">
+        GitHub contribution heatmap: {calendar.totalContributions.toLocaleString()}{" "}
+        contributions in the last 12 months.
+      </p>
       <div
         className="grid font-mono text-[10px] text-foreground-subtle leading-none"
         style={{
@@ -140,6 +145,13 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
             return (
               <div
                 key={`${wi}-${di}`}
+                role={day ? "img" : undefined}
+                aria-hidden={day ? undefined : true}
+                aria-label={
+                  day
+                    ? `${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"} on ${formatDate(day.date)}`
+                    : undefined
+                }
                 className={`aspect-square rounded-[2px] transition-shadow ${day ? LEVEL_CLASS[day.contributionLevel] : ""} ${isHovered ? "ring-1 ring-foreground/50" : ""}`}
                 style={{ gridColumn: wi + 2, gridRow: di + 2 }}
                 onPointerEnter={day ? (e) => handleEnter(e, day) : undefined}

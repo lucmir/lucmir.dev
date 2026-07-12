@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cacheLife } from "next/cache";
 import { SectionHead } from "@/components/sections/about";
 import { experience } from "@/lib/cv-data";
 
@@ -53,7 +54,7 @@ function Bullet({ text }: { text: string }) {
     return (
       <li className="pl-[18px] relative">
         <span className="absolute left-0 text-accent font-mono">+</span>
-        <b className="font-mono text-[13px] text-foreground-strong bg-background-card-hi px-1.5 border border-border-strong rounded-[2px]">
+        <b className="font-mono font-medium text-[13px] text-foreground-strong bg-background-card-hi px-1.5 border border-border-strong rounded-[2px]">
           {m[1]}
         </b>
         : {m[2]}
@@ -68,7 +69,12 @@ function Bullet({ text }: { text: string }) {
   );
 }
 
-export function Experience() {
+export async function Experience() {
+  "use cache";
+  // "now" feeds the "Present" role durations — daily revalidate keeps them
+  // tracking real time instead of freezing at build.
+  cacheLife("days");
+
   const now = new Date();
   // Filter out internships / undergrad research from the changelog list
   // (still in cv-data; the catalog stays focused on shipped roles).

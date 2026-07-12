@@ -1,3 +1,5 @@
+import { cacheLife } from "next/cache";
+
 export type ContributionLevel =
   | "NONE"
   | "FIRST_QUARTILE"
@@ -40,6 +42,10 @@ const QUERY = `
 `;
 
 export async function fetchContributions(): Promise<ContributionCalendar | null> {
+  "use cache";
+  // Revalidate hourly; freshness vs. API quota balance
+  cacheLife("hours");
+
   const token = process.env.GITHUB_TOKEN;
   if (!token) return null;
 
@@ -52,8 +58,6 @@ export async function fetchContributions(): Promise<ContributionCalendar | null>
         "User-Agent": "lucmir.dev",
       },
       body: JSON.stringify({ query: QUERY }),
-      // Revalidate every hour; freshness vs. API quota balance
-      next: { revalidate: 3600 },
     });
     if (!res.ok) return null;
     const json = (await res.json()) as {

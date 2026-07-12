@@ -1,4 +1,5 @@
 import { Download, Mail } from "lucide-react";
+import { cacheLife } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { GithubIcon } from "@/components/brand-icons";
@@ -56,7 +57,12 @@ const SHORT_NAMES: Record<string, string> = {
   "Universidade Federal de Minas Gerais": "UFMG",
 };
 
-export function Hero() {
+export async function Hero() {
+  "use cache";
+  // "now" feeds the company timeline / "Present" durations. Cached with a
+  // daily revalidate so they track real time instead of freezing at build.
+  cacheLife("days");
+
   const now = new Date();
   const spans = getCompanySpans(now);
   const totalMonths = spans.reduce((s, x) => s + x.months, 0) || 1;

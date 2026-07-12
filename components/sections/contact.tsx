@@ -31,7 +31,13 @@ export function Contact() {
       >
         <div>
           <h3 className="font-sans text-2xl sm:text-3xl md:text-[38px] font-semibold tracking-[-0.02em] text-foreground-strong leading-[1.05] mb-2 mt-2">
-            Email me at <span className="text-accent">{profile.email}</span>
+            Email me at{" "}
+            <a
+              href={`mailto:${profile.email}`}
+              className="text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors"
+            >
+              {profile.email}
+            </a>
           </h3>
           <p className="font-sans text-[14.5px] leading-[1.6] text-foreground-muted max-w-[52ch] mb-4">
             Open to senior engineering roles, infra and AI advisory, and the occasional weekend rabbit hole. Email is the fastest channel.
