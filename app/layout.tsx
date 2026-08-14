@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
-import Script from "next/script";
 import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
@@ -57,7 +56,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  jobTitle: "Senior Full-Stack Engineer",
+  jobTitle: "Senior Engineer — AI Agents & Cloud Infrastructure",
   description: DESCRIPTION,
   url: SITE_URL,
   email: `mailto:${profile.email}`,
@@ -100,20 +99,6 @@ try {
 } catch (e) {}
 `;
 
-/* Bryn attribution pixel (bryn.civic.com). Vendor-supplied loader kept
-   verbatim — it sets the config global, then injects pixel.js itself. If Civic
-   ships a new snippet, replace this whole string rather than editing pieces. */
-const brynPixelScript = `
-(function () {
-  window.__brynPixel = { ref: "KA0C109Z" };
-  var s = document.createElement('script');
-  s.src = "https://bryn.civic.com/pixel/pixel.js";
-  s.async = true;
-  s.setAttribute('data-bryn-pixel-ref', "KA0C109Z");
-  document.head.appendChild(s);
-})();
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -133,12 +118,6 @@ export default function RootLayout({
         {children}
         <Analytics />
         <ConsoleHello />
-        <Script
-          id="bryn-pixel"
-          strategy="afterInteractive"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: vendor pixel loader
-          dangerouslySetInnerHTML={{ __html: brynPixelScript }}
-        />
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: structured data

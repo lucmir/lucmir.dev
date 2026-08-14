@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy, Mail } from "lucide-react";
+import { Check, Mail } from "lucide-react";
 import { useState } from "react";
 import { SectionHead } from "@/components/sections/about";
 import { profile } from "@/lib/cv-data";
@@ -20,7 +20,7 @@ export function Contact() {
       id="contact"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 scroll-mt-20"
     >
-      <SectionHead idx="06" name="contact" aside="replies within 1 business day" />
+      <SectionHead idx="06" name="contact" aside="replies within 24h" />
 
       <div
         className="border border-border p-6 sm:p-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end"

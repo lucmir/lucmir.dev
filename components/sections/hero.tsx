@@ -88,7 +88,7 @@ export async function Hero() {
               <span className="text-accent">@</span>lucmir
             </span>
             <span className="text-foreground-subtle">·</span>
-            <span>senior fullstack engineer</span>
+            <span>senior engineer — ai agents & cloud infra</span>
             <span className="text-foreground-subtle">·</span>
             <span>belo horizonte, br</span>
           </div>

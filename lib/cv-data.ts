@@ -43,6 +43,7 @@ export const experience: ExperienceItem[] = [
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
     bullets: [
+      "Civic MCP (AI): build and operate an AI agent security control plane using MCP to connect agents to 95+ enterprise tools, with guardrails, audit logging, and secure credential management",
       "Lead infrastructure, DevOps, observability, analytics pipelines, and scalability across all Civic products",
       "Operate AWS at scale: EKS, EC2, Lambda, DynamoDB, S3, CloudWatch, Kinesis — across dev, staging, and production",
       "Run Kubernetes (EKS) clusters with automated scaling and GitOps-driven deployments",
@@ -59,7 +60,6 @@ export const experience: ExperienceItem[] = [
     duration: "Nov 2018 — Apr 2025",
     location: "Belo Horizonte, Brazil",
     bullets: [
-      "Civic MCP (AI): built an AI agent security control plane using MCP to connect agents to 95+ enterprise tools, with guardrails, audit logging, and secure credential management",
       "Civic Auth: complete identity and authentication platform (OAuth 2.0, OIDC) on Next.js + React",
       "Civic Pass: on-chain identity credentials on Solana and EVM chains — scaled to 1M+ passes issued",
       "Civic Wallet: APIs for crypto wallet and payments (Node.js, Serverless, AWS)",
