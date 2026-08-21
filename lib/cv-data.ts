@@ -2,7 +2,7 @@ export const profile = {
   name: "Lucas Cunha",
   tagline: "Building AI agents and the cloud infrastructure they run on",
   subtitle:
-    "Senior Engineer with 15+ years across cloud, AI/MCP, and identity. Currently leading DevOps and infrastructure at Civic Technologies.",
+    "Senior full-stack engineer with 15+ years across product, cloud, AI/MCP, and identity. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.",
   location: "Belo Horizonte, Brazil",
   email: "luccmir@gmail.com",
   links: {
@@ -15,12 +15,12 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I build production AI agents and the cloud infrastructure they run on. Today I lead DevOps and infrastructure at Civic Technologies — including the Civic MCP, a security control plane that connects AI agents to 95+ enterprise tools with guardrails, audit logging, and secure credential management.",
+    "I build production AI agents and the cloud infrastructure they run on. Today I'm a full-stack engineer and DevOps lead at Civic Technologies. I build Civic MCP, a security control plane connecting AI agents to 95+ enterprise tools with guardrails, audit logging, and secure credential management; and Bryn, a signal-based GTM product where LLM agents identify company visitors and act on intent signals in real time.",
     "Before the AI focus, I spent 15+ years building and operating large-scale distributed systems: full-stack engineering across identity, payments, and on-chain credentials; cloud architecture on AWS with Kubernetes, Terraform, and GitOps; observability and incident response at scale.",
-    "BSc + MSc in Computer Science from UFMG. Comfortable in TypeScript, Node.js, Python, React, and Next.js — and increasingly, in writing the agents that write the code.",
+    "BSc + MSc in Computer Science from UFMG. Comfortable in TypeScript, Node.js, Python, React, and Next.js, and increasingly in writing the agents that write the code.",
   ],
   currently:
-    "Leading DevOps & infrastructure at Civic. Shipping MCP integrations, exploring advanced agent patterns and skill design.",
+    "Building Civic MCP and Bryn at Civic, alongside leading DevOps and infrastructure. Shipping LLM agent workflows, exploring advanced agent patterns and skill design.",
 } as const;
 
 export type ExperienceItem = {
@@ -39,11 +39,12 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "DevOps & Infrastructure Lead",
+    role: "Full-Stack Engineer & DevOps Lead",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
     bullets: [
       "Civic MCP (AI): build and operate an AI agent security control plane using MCP to connect agents to 95+ enterprise tools, with guardrails, audit logging, and secure credential management",
+      "Bryn (AI): build a signal-based GTM product where LLM-powered agents identify company visitors, enrich and score intent signals, and trigger automated plays into Slack and CRM",
       "Lead infrastructure, DevOps, observability, analytics pipelines, and scalability across all Civic products",
       "Operate AWS at scale: EKS, EC2, Lambda, DynamoDB, S3, CloudWatch, Kinesis — across dev, staging, and production",
       "Run Kubernetes (EKS) clusters with automated scaling and GitOps-driven deployments",

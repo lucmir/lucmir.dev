@@ -21,8 +21,8 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lucas-cunha.com";
-const TITLE = `${profile.name} — Senior Engineer · AI Agents · Cloud Infrastructure`;
-const DESCRIPTION = `Personal site of ${profile.name} — engineer building AI agents and the cloud infrastructure they run on.`;
+const TITLE = `${profile.name} · Senior Full-Stack Engineer · AI Agents & Cloud Infra`;
+const DESCRIPTION = `Personal site of ${profile.name}, a full-stack engineer building AI agents and the cloud infrastructure they run on.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +56,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  jobTitle: "Senior Engineer — AI Agents & Cloud Infrastructure",
+  jobTitle: "Senior Full-Stack Engineer, AI Agents & Cloud Infrastructure",
   description: DESCRIPTION,
   url: SITE_URL,
   email: `mailto:${profile.email}`,
@@ -69,6 +69,7 @@ const personJsonLd = {
     addressCountry: "BR",
   },
   knowsAbout: [
+    "Full-Stack Development",
     "AI Agents",
     "Model Context Protocol",
     "Claude Agent SDK",

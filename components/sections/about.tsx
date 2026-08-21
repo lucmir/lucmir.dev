@@ -1,8 +1,8 @@
 import { about } from "@/lib/cv-data";
 
 const SIDE_META: { k: string; v: string; accent?: boolean }[] = [
-  { k: "now",     v: "DevOps & Infra Lead · Civic", accent: true },
-  { k: "focus",   v: "AI agents · MCP · cloud platforms" },
+  { k: "now",     v: "Full-Stack & DevOps Lead · Civic", accent: true },
+  { k: "focus",   v: "AI agents · MCP · full-stack product" },
   { k: "stack",   v: "TypeScript · AWS · Kubernetes" },
   { k: "based",   v: "Belo Horizonte, BR (UTC−3)" },
   { k: "speaks",  v: "English · Português" },

@@ -88,7 +88,7 @@ export async function Hero() {
               <span className="text-accent">@</span>lucmir
             </span>
             <span className="text-foreground-subtle">·</span>
-            <span>senior engineer — ai agents & cloud infra</span>
+            <span>senior full-stack engineer · ai agents & cloud infra</span>
             <span className="text-foreground-subtle">·</span>
             <span>belo horizonte, br</span>
           </div>
@@ -102,7 +102,7 @@ export async function Hero() {
           </p>
 
           <p className="text-[13.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
-            15+ years building and operating large-scale distributed systems. I work across cloud, AI/MCP, and identity, with a soft spot for observability, incident response, and architectures that hold up under real users. Currently leading DevOps and infrastructure at Civic Technologies.
+            15+ years building and operating large-scale distributed systems. I work across product, cloud, AI/MCP, and identity, with a soft spot for observability, incident response, and architectures that hold up under real users. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.
           </p>
 
           <div className="flex flex-wrap gap-2">
