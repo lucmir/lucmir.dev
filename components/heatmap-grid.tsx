@@ -99,7 +99,7 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
         contributions in the last 12 months.
       </p>
       <div
-        className="grid font-mono text-[10px] text-foreground-subtle leading-none"
+        className="grid font-mono text-[13px] text-foreground-subtle leading-none"
         style={{
           gridTemplateColumns: `auto repeat(${calendar.weeks.length}, minmax(${MIN_CELL_PX}px, 1fr))`,
           columnGap: `${GAP_PX}px`,
@@ -152,7 +152,7 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
                     ? `${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"} on ${formatDate(day.date)}`
                     : undefined
                 }
-                className={`aspect-square rounded-[2px] transition-shadow ${day ? LEVEL_CLASS[day.contributionLevel] : ""} ${isHovered ? "ring-1 ring-foreground/50" : ""}`}
+                className={`aspect-square transition-shadow ${day ? LEVEL_CLASS[day.contributionLevel] : ""} ${isHovered ? "ring-1 ring-foreground/50" : ""}`}
                 style={{ gridColumn: wi + 2, gridRow: di + 2 }}
                 onPointerEnter={day ? (e) => handleEnter(e, day) : undefined}
                 onPointerLeave={day ? handleLeave : undefined}
@@ -163,7 +163,7 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
       </div>
 
       {/* Footer row: caption (left) + legend (right) */}
-      <div className="flex items-center justify-between gap-3 mt-4 font-mono text-[10px] text-foreground-subtle flex-wrap">
+      <div className="flex items-center justify-between gap-3 mt-4 font-mono text-[13px] text-foreground-subtle flex-wrap">
         <span>private repos included · updates ~hourly</span>
         <div className="flex items-center gap-1.5">
           <span>Less</span>
@@ -178,7 +178,7 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
           ).map((lvl) => (
             <div
               key={lvl}
-              className={`size-2.5 rounded-[2px] ${LEVEL_CLASS[lvl]}`}
+              className={`size-2.5 ${LEVEL_CLASS[lvl]}`}
               aria-hidden
             />
           ))}
@@ -190,7 +190,7 @@ export function HeatmapGrid({ calendar }: { calendar: ContributionCalendar }) {
       {hover ? (
         <div
           role="tooltip"
-          className="pointer-events-none absolute z-10 px-2.5 py-1.5 rounded-md bg-foreground text-background font-mono text-[11px] whitespace-nowrap shadow-lg"
+          className="pointer-events-none absolute z-10 px-2.5 py-1.5 rounded-md bg-foreground text-background font-mono text-[14px] whitespace-nowrap shadow-lg"
           style={{
             left: hover.left,
             top: hover.top,

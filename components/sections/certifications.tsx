@@ -19,7 +19,7 @@ export function Certifications() {
       id="certifications"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead idx="04" name="certifications" />
+      <SectionHead name="certifications" />
 
       <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
         {certifications.map((c, i) => (
@@ -40,14 +40,14 @@ export function Certifications() {
                 />
               </div>
               <div className="flex justify-between items-baseline">
-                <span className="font-mono text-[10.5px] text-foreground-muted uppercase tracking-[0.08em]">
+                <span className="font-mono text-[13px] text-foreground-muted uppercase tracking-[0.08em]">
                   {ISO_DATES[i] ?? ""}
                 </span>
-                <span className="inline-flex items-center gap-1 font-mono text-[10.5px] uppercase tracking-[0.08em] text-foreground-muted group-hover:text-accent transition-colors">
+                <span className="inline-flex items-center gap-1 font-mono text-[13px] uppercase tracking-[0.08em] text-foreground-muted group-hover:text-accent transition-colors">
                   verify <ExternalLink className="size-2.5" />
                 </span>
               </div>
-              <div className="font-sans text-[13.5px] leading-[1.35] text-foreground-strong font-medium">
+              <div className="font-sans text-[16.5px] leading-[1.35] text-foreground-strong font-medium">
                 {c.name}
               </div>
             </a>

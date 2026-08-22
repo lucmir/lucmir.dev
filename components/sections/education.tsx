@@ -7,7 +7,7 @@ export function Education() {
       id="education"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead idx="05" name="education" aside="ufmg · 2 degrees" />
+      <SectionHead name="education" aside="UFMG · 2 degrees" />
 
       <div className="border border-border bg-background-card">
         {education.map((e, i) => {
@@ -19,18 +19,18 @@ export function Education() {
                 isLast ? "" : "border-b border-border"
               }`}
             >
-              <div className="font-mono text-[12px] text-accent">
+              <div className="font-mono text-[15px] text-accent">
                 {e.duration.replace(/[—–-]/g, "→")}
               </div>
               <div>
-                <div className="font-sans text-base text-foreground-strong font-semibold">
+                <div className="font-sans text-lg text-foreground-strong font-semibold">
                   {e.school}
                 </div>
-                <div className="text-[12px] text-foreground-muted mt-0.5">
+                <div className="text-[15px] text-foreground-muted mt-0.5">
                   {abbreviateDegree(e.degree)} · {e.field}
                 </div>
               </div>
-              <div className="font-mono text-[11.5px] text-foreground-muted">UFMG · BR</div>
+              <div className="font-mono text-[14.5px] text-foreground-muted">UFMG · BR</div>
             </div>
           );
         })}

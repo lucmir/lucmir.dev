@@ -53,8 +53,8 @@ function Bullet({ text }: { text: string }) {
   if (m) {
     return (
       <li className="pl-[18px] relative">
-        <span className="absolute left-0 text-accent font-mono">+</span>
-        <b className="font-mono font-medium text-[13px] text-foreground-strong bg-background-card-hi px-1.5 border border-border-strong rounded-[2px]">
+        <span className="absolute left-0 text-foreground-subtle">&bull;</span>
+        <b className="font-sans font-semibold text-foreground-strong">
           {m[1]}
         </b>
         : {m[2]}
@@ -63,7 +63,7 @@ function Bullet({ text }: { text: string }) {
   }
   return (
     <li className="pl-[18px] relative">
-      <span className="absolute left-0 text-accent font-mono">+</span>
+      <span className="absolute left-0 text-foreground-subtle">&bull;</span>
       {text}
     </li>
   );
@@ -85,7 +85,7 @@ export async function Experience() {
       id="experience"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead idx="02" name="experience" aside={`${items.length} roles · descending`} />
+      <SectionHead name="experience" aside={`${items.length} roles · most recent first`} />
 
       <div className="border border-border bg-background-card">
         {items.map((job, i) => {
@@ -96,10 +96,10 @@ export async function Experience() {
               key={`${job.company}-${job.role}-${i}`}
               className={`grid grid-cols-1 md:grid-cols-[200px_1fr] ${isLast ? "" : "border-b border-border"}`}
             >
-              <div className="p-5 md:border-r border-b md:border-b-0 border-border text-[11.5px] grid gap-2 content-start">
-                <div className="font-mono text-accent text-[13px] font-medium">{when}</div>
+              <div className="p-5 md:border-r border-b md:border-b-0 border-border text-[14.5px] grid gap-2 content-start">
+                <div className="font-mono text-accent text-[16px] font-medium">{when}</div>
                 {duration ? (
-                  <div className="text-foreground-subtle text-[10.5px] uppercase tracking-[0.08em]">
+                  <div className="text-foreground-subtle text-[13px] uppercase tracking-[0.08em]">
                     {duration}
                   </div>
                 ) : null}
@@ -109,10 +109,10 @@ export async function Experience() {
               </div>
 
               <div className="p-5 sm:p-6">
-                <h3 className="font-sans text-[17px] font-semibold text-foreground-strong tracking-[-0.005em] mb-0.5">
+                <h3 className="font-sans text-[20.5px] font-semibold text-foreground-strong tracking-[-0.005em] mb-0.5">
                   {job.role}
                 </h3>
-                <div className="font-mono text-[14px] text-foreground-muted mb-3.5 inline-flex items-center gap-2">
+                <div className="font-sans text-[18px] text-foreground-muted mb-3.5 inline-flex items-center gap-2">
                   {job.logo ? (
                     <Image
                       src={job.logo}
@@ -125,7 +125,7 @@ export async function Experience() {
                   {job.company}
                 </div>
 
-                <ul className="grid gap-1.5 font-sans text-[14.5px] leading-[1.55] text-foreground m-0 p-0 list-none">
+                <ul className="grid gap-1.5 font-sans text-[18px] leading-[1.55] text-foreground m-0 p-0 list-none">
                   {job.bullets.map((b, bi) => (
                     <Bullet key={bi} text={b} />
                   ))}
@@ -136,7 +136,7 @@ export async function Experience() {
                     {job.stack.map((s) => (
                       <span
                         key={s}
-                        className="font-mono text-[11px] text-foreground-muted px-1.5 py-0.5 border border-border bg-background-elevated rounded-[2px]"
+                        className="font-mono text-[14px] text-foreground-muted px-1.5 py-0.5 border border-border bg-background-elevated rounded-[6px]"
                       >
                         {s}
                       </span>

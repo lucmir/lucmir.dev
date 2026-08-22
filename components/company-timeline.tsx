@@ -73,7 +73,7 @@ export function CompanyTimeline({ spans }: { spans: TimelineSpan[] }) {
       {hover ? (
         <div
           role="tooltip"
-          className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full px-2.5 py-1.5 rounded-[2px] bg-foreground-strong text-background font-mono text-[10.5px] whitespace-nowrap shadow-lg"
+          className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full px-2.5 py-1.5 rounded-[6px] bg-foreground-strong text-background font-mono text-[13px] whitespace-nowrap shadow-lg"
           style={{ left: hover.left, top: hover.top }}
         >
           <span className="font-semibold">{hover.span.company}</span>

@@ -1,57 +1,67 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — green-accent, dark by default, light via toggle.
-   - No [data-theme] attribute → follow system (prefers-color-scheme)
+   Color tokens — light-first, deep-green accent.
+   - :root                → light (the design baseline)
+   - prefers-color-scheme → dark, unless the user forced light
    - [data-theme="dark"]  → force dark
    - [data-theme="light"] → force light
+   Every value is checked to WCAG AA (4.5:1) against its own
+   background before it lands here; see the contrast note per pair.
    ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Dark (default) */
-  --background:          #0a0e0c;
-  --background-elevated: #11171a;
-  --background-card:     #0d1316;
-  --background-card-hi:  #131b1f;
-  --foreground:          #c5d1cb;
-  --foreground-strong:   #e6efe9;
-  --foreground-muted:    #7a8783;
-  --foreground-subtle:   #4f5a55;
-  --border:              #1b2429;
-  --border-strong:       #283238;
-  --accent:              #4ade80;
-  --accent-soft:         rgba(74, 222, 128, 0.10);
-  --info:                #60a5fa;
-  --info-soft:           rgba(96, 165, 250, 0.10);
+  /* Light (baseline) */
+  --background:          #fbfbfa;
+  --background-elevated: #ffffff;
+  --background-card:     #ffffff;
+  --background-card-hi:  #f4f4f2;
+  --foreground:          #2b322e; /* 12.69:1 */
+  --foreground-strong:   #141816;
+  --foreground-muted:    #525955; /* 6.95:1 */
+  --foreground-subtle:   #6e7571;
+  --border:              #dbdcd7;
+  --border-strong:       #b8bbb4;
+  --accent:              #256a4a; /* 6.26:1 */
+  --accent-soft:         rgba(37, 106, 74, 0.10);
+  --info:                #2563eb;
+  --info-soft:           rgba(37, 99, 235, 0.09);
 }
 
-/* Light when system requests it AND user hasn't forced dark */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --background:          #f4f5f3;
-    --background-elevated: #ffffff;
-    --background-card:     #fbfbfa;
-    --background-card-hi:  #eef0ec;
-    --foreground:          #1f2a25;
-    --foreground-strong:   #0a0f0c;
-    --foreground-muted:    #5e6a64;
-    --foreground-subtle:   #8c948f;
-    --border:              #dadcd6;
-    --border-strong:       #c1c4bd;
+/* Dark palette, shared by the media query and the explicit override */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background:          #0f1311;
+    --background-elevated: #171c19;
+    --background-card:     #141917;
+    --background-card-hi:  #1b211e;
+    --foreground:          #dbe2de; /* 14.22:1 */
+    --foreground-strong:   #f0f3f1;
+    --foreground-muted:    #a3aba7; /* 7.97:1 */
+    --foreground-subtle:   #787f7b;
+    --border:              #2d342f;
+    --border-strong:       #434b46;
+    --accent:              #74cca1; /* 9.71:1 */
+    --accent-soft:         rgba(116, 204, 161, 0.13);
+    --info:                #60a5fa;
+    --info-soft:           rgba(96, 165, 250, 0.12);
   }
 }
 
-/* Explicit light override (toggle clicked) */
-html[data-theme="light"] {
-  --background:          #f4f5f3;
-  --background-elevated: #ffffff;
-  --background-card:     #fbfbfa;
-  --background-card-hi:  #eef0ec;
-  --foreground:          #1f2a25;
-  --foreground-strong:   #0a0f0c;
-  --foreground-muted:    #5e6a64;
-  --foreground-subtle:   #8c948f;
-  --border:              #dadcd6;
-  --border-strong:       #c1c4bd;
+html[data-theme="dark"] {
+  --background:          #0f1311;
+  --background-elevated: #171c19;
+  --background-card:     #141917;
+  --background-card-hi:  #1b211e;
+  --foreground:          #dbe2de;
+  --foreground-strong:   #f0f3f1;
+  --foreground-muted:    #a3aba7;
+  --foreground-subtle:   #787f7b;
+  --border:              #2d342f;
+  --border-strong:       #434b46;
+  --accent:              #74cca1;
+  --accent-soft:         rgba(116, 204, 161, 0.13);
+  --info:                #60a5fa;
+  --info-soft:           rgba(96, 165, 250, 0.12);
 }
 
 /* Tailwind v4 theme tokens — map CSS vars to utility classes */
@@ -80,37 +90,23 @@ html { color-scheme: light dark; }
   html { scroll-behavior: smooth; }
 }
 
+/* Body is SANS. Mono is reserved for data — dates, counts, tags, tooltips,
+   the timeline — where the tabular figures actually earn their keep. */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plex-mono), ui-monospace, "JetBrains Mono", Menlo, monospace;
-  font-size: 13.5px;
-  line-height: 1.55;
-  font-feature-settings: "zero", "ss01";
+  font-family: var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Subtle grid background */
-body::before {
-  content:""; position: fixed; inset:0; pointer-events:none; z-index:-1;
-  background-image:
-    linear-gradient(to right,  rgba(255,255,255,.012) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.012) 1px, transparent 1px);
-  background-size: 80px 80px;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) body::before,
-  html[data-theme="light"] body::before {
-    background-image:
-      linear-gradient(to right,  rgba(0,0,0,.025) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0,0,0,.025) 1px, transparent 1px);
-  }
-}
-html[data-theme="light"] body::before {
-  background-image:
-    linear-gradient(to right,  rgba(0,0,0,.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,.025) 1px, transparent 1px);
+/* Slashed zero and tabular figures stay scoped to genuine mono contexts
+   instead of applying to every glyph on the page. */
+code, kbd, samp, pre, .font-mono {
+  font-feature-settings: "zero", "ss01", "tnum";
 }
 
-::selection { background: var(--accent); color: var(--background); }
+::selection { background: var(--accent-soft); color: var(--foreground-strong); }
 * { scrollbar-color: var(--border-strong) transparent; }

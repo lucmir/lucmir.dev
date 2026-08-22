@@ -14,14 +14,14 @@ export function About() {
       id="about"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead idx="00" name="about" />
+      <SectionHead name="about" />
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] border border-border bg-background-card">
         <div className="p-6 sm:p-7 md:border-r border-b md:border-b-0 border-border">
           {about.paragraphs.map((p, i) => (
             <p
               key={i}
-              className={`font-sans text-[15px] leading-[1.6] mb-3.5 last:mb-0 ${
+              className={`font-sans text-[18.5px] leading-[1.6] mb-3.5 last:mb-0 ${
                 i === 0 ? "text-foreground-strong" : "text-foreground"
               }`}
             >
@@ -31,7 +31,7 @@ export function About() {
                 <span key={j}>
                   {chunk}
                   {j < arr.length - 1 ? (
-                    <b className="font-mono text-[13px] text-accent bg-accent-soft px-1.5 rounded-[2px] font-medium">
+                    <b className="font-sans text-accent font-semibold">
                       Civic Technologies
                     </b>
                   ) : null}
@@ -41,13 +41,13 @@ export function About() {
           ))}
         </div>
 
-        <aside className="p-5 grid gap-3.5 content-start text-[11.5px]">
+        <aside className="p-5 grid gap-3.5 content-start text-[14.5px]">
           {SIDE_META.map((row) => (
             <div key={row.k}>
-              <div className="text-foreground-muted uppercase tracking-[0.1em] text-[10px] mb-1">
+              <div className="text-foreground-muted uppercase tracking-[0.1em] text-[13px] mb-1">
                 {row.k}
               </div>
-              <div className={row.accent ? "text-accent text-[12.5px]" : "text-foreground-strong text-[12.5px]"}>
+              <div className={row.accent ? "text-accent text-[15.5px]" : "text-foreground-strong text-[15.5px]"}>
                 {row.v}
               </div>
             </div>
@@ -59,21 +59,19 @@ export function About() {
 }
 
 export function SectionHead({
-  idx,
   name,
   aside,
 }: {
-  idx: string;
   name: string;
   aside?: React.ReactNode;
 }) {
   return (
-    <div className="flex items-baseline justify-between mb-6 gap-4 flex-wrap">
-      <h2 className="font-mono text-[13px] font-medium uppercase tracking-[0.14em] text-foreground-strong m-0">
-        <span className="text-accent mr-3 font-normal">{idx}</span> {name}
+    <div className="flex items-baseline justify-between mb-6 gap-4 flex-wrap border-b border-border pb-3">
+      <h2 className="font-sans text-[24px] font-semibold tracking-[-0.012em] capitalize text-foreground-strong m-0">
+        {name}
       </h2>
       {aside ? (
-        <span className="text-[11px] text-foreground-muted uppercase tracking-[0.1em]">
+        <span className="text-[15.5px] text-foreground-muted">
           {aside}
         </span>
       ) : null}

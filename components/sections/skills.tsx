@@ -8,7 +8,6 @@ export function Skills() {
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
       <SectionHead
-        idx="03"
         name="skills"
         aside={
           <>
@@ -24,14 +23,14 @@ export function Skills() {
           return (
             <div
               key={group.name}
-              className={`grid grid-cols-1 md:grid-cols-[200px_1fr_60px] items-center gap-3 sm:gap-4 px-5 py-3.5 text-[13px] ${
+              className={`grid grid-cols-1 md:grid-cols-[200px_1fr_60px] items-center gap-3 sm:gap-4 px-5 py-3.5 text-[16px] ${
                 isLast ? "" : "border-b border-border"
               }`}
             >
-              <div className="font-mono text-foreground-strong font-medium flex items-center gap-2.5">
-                {group.name.toLowerCase()}
+              <div className="font-sans text-[17px] text-foreground-strong font-semibold flex items-center gap-2.5">
+                {group.name}
               </div>
-              <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 text-[12.5px]">
+              <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 text-[15.5px]">
                 {group.items.map((s) => (
                   <span
                     key={s.name}
@@ -41,7 +40,7 @@ export function Skills() {
                   </span>
                 ))}
               </div>
-              <div className="font-mono text-[11.5px] text-foreground-muted text-left md:text-right">
+              <div className="font-mono text-[14.5px] text-foreground-muted text-left md:text-right">
                 <em className="not-italic text-accent">{primary}</em>
                 <span>/{group.items.length}</span>
               </div>

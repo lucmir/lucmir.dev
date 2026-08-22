@@ -83,25 +83,25 @@ export async function Hero() {
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
         <div>
           {/* Handle line */}
-          <div className="font-mono text-[12.5px] text-foreground-muted mb-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1">
+          <div className="font-mono text-[15.5px] text-foreground-muted mb-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1">
             <span>
               <span className="text-accent">@</span>lucmir
             </span>
             <span className="text-foreground-subtle">·</span>
-            <span>senior full-stack engineer · ai agents & cloud infra</span>
+            <span>Senior Full-Stack Engineer · AI Agents &amp; Cloud Infra</span>
             <span className="text-foreground-subtle">·</span>
-            <span>belo horizonte, br</span>
+            <span>Belo Horizonte, BR</span>
           </div>
 
           <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.022em] leading-[1.02] text-foreground-strong mb-4">
             {profile.name}
           </h1>
 
-          <p className="font-sans text-lg sm:text-xl md:text-[22px] leading-[1.4] text-foreground-strong max-w-[60ch] mb-3">
+          <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[60ch] mb-3">
             Builds AI <b className="text-accent font-medium">agents</b>, and the cloud infrastructure they run on.
           </p>
 
-          <p className="text-[13.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
+          <p className="text-[16.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
             15+ years building and operating large-scale distributed systems. I work across product, cloud, AI/MCP, and identity, with a soft spot for observability, incident response, and architectures that hold up under real users. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.
           </p>
 
@@ -109,14 +109,14 @@ export async function Hero() {
             <a
               href={profile.cvUrl}
               download
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-[12.5px] rounded-[2px] bg-accent-soft border border-[color-mix(in_oklab,var(--accent)_50%,var(--border-strong))] text-accent hover:bg-[color-mix(in_oklab,var(--accent)_18%,transparent)] transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-accent-soft border border-[color-mix(in_oklab,var(--accent)_50%,var(--border-strong))] text-accent hover:bg-[color-mix(in_oklab,var(--accent)_18%,transparent)] transition-colors"
             >
               <Download className="size-3.5" />
               Download CV
             </a>
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-[12.5px] rounded-[2px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
             >
               <Mail className="size-3.5" />
               Get in touch
@@ -125,7 +125,7 @@ export async function Hero() {
               href={profile.links.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-[12.5px] rounded-[2px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
             >
               <GithubIcon className="size-3.5" />
               GitHub
@@ -145,7 +145,7 @@ export async function Hero() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="p-3 text-[11.5px] text-foreground-muted grid gap-1">
+          <div className="p-3 text-[14.5px] text-foreground-muted grid gap-1">
             <div className="grid grid-cols-[60px_1fr] gap-2">
               <span>role</span>
               <b className="font-medium text-foreground-strong">Sr Eng</b>
@@ -167,21 +167,21 @@ export async function Hero() {
       </div>
 
       {/* Tiles */}
-      <div className="mt-9 grid grid-cols-1 md:grid-cols-3 border border-border rounded-[2px] overflow-hidden bg-background-card">
+      <div className="mt-9 grid grid-cols-1 md:grid-cols-3 border border-border rounded-[6px] overflow-hidden bg-background-card">
         <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-border">
-          <div className="text-[10.5px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+          <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>experience</span>
           </div>
           <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
-            15<span className="text-[13px] text-foreground-muted ml-1">+ yr</span>
+            15<span className="text-[16px] text-foreground-muted ml-1">+ yr</span>
           </div>
-          <div className="text-[10.5px] text-foreground-muted mt-1.5">
+          <div className="text-[13px] text-foreground-muted mt-1.5">
             across cloud, AI, identity
           </div>
         </div>
 
         <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-border">
-          <div className="text-[10.5px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+          <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>companies</span><span>career</span>
           </div>
           <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
@@ -191,13 +191,13 @@ export async function Hero() {
         </div>
 
         <div className="p-4 sm:p-5">
-          <div className="text-[10.5px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+          <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>degrees</span><span>computer science</span>
           </div>
           <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
             2
           </div>
-          <div className="text-[10.5px] text-foreground-muted mt-1.5">
+          <div className="text-[13px] text-foreground-muted mt-1.5">
             BSc + MSc, UFMG
           </div>
         </div>

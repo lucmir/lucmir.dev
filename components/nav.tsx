@@ -90,9 +90,9 @@ export function Nav() {
         <Link
           href="#top"
           onClick={() => setMenuOpen(false)}
-          className="inline-flex items-center gap-2.5 text-foreground-strong text-[13px]"
+          className="inline-flex items-center gap-2.5 text-foreground-strong text-[16px]"
         >
-          <span className="grid place-items-center size-[22px] text-[11px] font-semibold text-accent border border-accent bg-accent-soft">
+          <span className="grid place-items-center size-[22px] text-[14px] font-semibold text-accent border border-accent bg-accent-soft">
             L
           </span>
           <span>
@@ -101,13 +101,13 @@ export function Nav() {
           </span>
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-0.5 justify-center text-[12.5px]">
+        <ul className="hidden lg:flex items-center gap-0.5 justify-center text-[15.5px]">
           {SECTIONS.map((s) => (
             <li key={s.id}>
               <Link
                 href={`#${s.id}`}
                 onClick={() => handleNavClick(s.id)}
-                className={`px-2.5 py-1.5 rounded-[2px] border transition-colors ${
+                className={`px-2.5 py-1.5 rounded-[6px] border transition-colors ${
                   activeId === s.id
                     ? "text-accent border-[color-mix(in_oklab,var(--accent)_30%,var(--border))] bg-accent-soft"
                     : "text-foreground-muted border-transparent hover:text-foreground-strong"
@@ -126,7 +126,7 @@ export function Nav() {
             target="_blank"
             rel="noreferrer noopener"
             aria-label="GitHub profile"
-            className="grid place-items-center size-7 rounded-[2px] border border-border bg-background-elevated text-foreground-muted hover:text-foreground-strong hover:border-border-strong transition-colors"
+            className="grid place-items-center size-7 rounded-[6px] border border-border bg-background-elevated text-foreground-muted hover:text-foreground-strong hover:border-border-strong transition-colors"
           >
             <GithubIcon className="size-3.5" />
           </a>
@@ -135,7 +135,7 @@ export function Nav() {
             target="_blank"
             rel="noreferrer noopener"
             aria-label="LinkedIn profile"
-            className="grid place-items-center size-7 rounded-[2px] border border-border bg-background-elevated text-foreground-muted hover:text-foreground-strong hover:border-border-strong transition-colors"
+            className="grid place-items-center size-7 rounded-[6px] border border-border bg-background-elevated text-foreground-muted hover:text-foreground-strong hover:border-border-strong transition-colors"
           >
             <LinkedinIcon className="size-3.5" />
           </a>
@@ -144,7 +144,7 @@ export function Nav() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="lg:hidden grid place-items-center size-7 rounded-[2px] border border-border bg-background-elevated text-foreground-muted"
+            className="lg:hidden grid place-items-center size-7 rounded-[6px] border border-border bg-background-elevated text-foreground-muted"
           >
             {menuOpen ? <X className="size-3.5" /> : <Menu className="size-3.5" />}
           </button>
@@ -162,7 +162,7 @@ export function Nav() {
                     setMenuOpen(false);
                     handleNavClick(s.id);
                   }}
-                  className={`block px-3 py-2 rounded-[2px] text-sm transition-colors ${
+                  className={`block px-3 py-2 rounded-[6px] text-base transition-colors ${
                     activeId === s.id
                       ? "text-accent bg-accent-soft"
                       : "text-foreground-muted hover:text-foreground-strong"
