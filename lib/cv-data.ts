@@ -4,7 +4,7 @@ export const profile = {
   subtitle:
     "Senior full-stack engineer with 15+ years across product, cloud, AI/MCP, and identity. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.",
   location: "Belo Horizonte, Brazil",
-  email: "luccmir@gmail.com",
+  email: "lucascmir@gmail.com",
   links: {
     github: "https://github.com/lucmir",
     linkedin: "https://www.linkedin.com/in/lucmir",
