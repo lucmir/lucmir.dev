@@ -3,45 +3,18 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-type Theme = "light" | "dark" | "system";
-
-function readSavedTheme(): "light" | "dark" | null {
-  try {
-    const t = localStorage.getItem("lc-theme");
-    if (t === "light" || t === "dark") return t;
-  } catch {}
-  return null;
-}
-
-function systemPrefersDark() {
-  if (typeof window === "undefined") return true;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
-}
+type Theme = "light" | "dark";
 
 export function ThemeToggle() {
-  /* Resolved theme drives which icon we render. Starts as "dark" on SSR
-     to match the default styling — the head script will have already
-     applied any saved override before hydration, so the first client
-     render reads the real DOM state on mount and reconciles. */
-  const [resolved, setResolved] = useState<"light" | "dark">("dark");
+  /* Light is the default for everyone, so SSR starts there. The head
+     script applies any stored override before hydration; this reads the
+     real DOM state on mount and reconciles. The OS preference is
+     intentionally ignored — dark is an explicit choice. */
+  const [resolved, setResolved] = useState<Theme>("light");
 
   useEffect(() => {
     const explicit = document.documentElement.getAttribute("data-theme");
-    if (explicit === "light" || explicit === "dark") {
-      setResolved(explicit);
-      return;
-    }
-    setResolved(systemPrefersDark() ? "dark" : "light");
-
-    // React to system changes only when there's no explicit override
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      const has = document.documentElement.getAttribute("data-theme");
-      if (has === "light" || has === "dark") return;
-      setResolved(mq.matches ? "dark" : "light");
-    };
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
+    if (explicit === "dark" || explicit === "light") setResolved(explicit);
   }, []);
 
   const toggle = () => {

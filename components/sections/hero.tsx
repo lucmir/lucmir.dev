@@ -75,9 +75,13 @@ export async function Hero() {
   }));
 
   return (
+    /* Hero fills the viewport below the sticky nav (h-14 + 1px border =
+       57px) so the next section's heading always starts below the fold.
+       min-h, not h, so short viewports fall back to normal flow instead of
+       cramping. vh (not svh/dvh) for the widest browser support. */
     <section
       id="top"
-      className="border-b border-border max-w-[1200px] mx-auto px-5 sm:px-8 pt-14 pb-14"
+      className="border-b border-border max-w-[1200px] mx-auto px-5 sm:px-8 pt-8 pb-8 min-h-[calc(100vh_-_57px)] flex flex-col justify-evenly"
     >
       {/* Top row: name+copy on left, ID card on right */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
@@ -167,7 +171,7 @@ export async function Hero() {
       </div>
 
       {/* Tiles */}
-      <div className="mt-9 grid grid-cols-1 md:grid-cols-3 border border-border rounded-[6px] overflow-hidden bg-background-card">
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 border border-border rounded-[6px] overflow-hidden bg-background-card">
         <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-border">
           <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>experience</span>

@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — light-first, deep-green accent.
-   - :root                → light (the design baseline)
-   - prefers-color-scheme → dark, unless the user forced light
-   - [data-theme="dark"]  → force dark
-   - [data-theme="light"] → force light
+   Color tokens — light by default, deep-green accent.
+   - :root                → light (the default for everyone)
+   - [data-theme="dark"]  → dark, set only by the toggle
+   - [data-theme="light"] → light (explicitly stored choice)
    Every value is checked to WCAG AA (4.5:1) against its own
    background before it lands here; see the contrast note per pair.
    ──────────────────────────────────────────────────────────────── */
@@ -27,26 +26,8 @@
   --info-soft:           rgba(37, 99, 235, 0.09);
 }
 
-/* Dark palette, shared by the media query and the explicit override */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --background:          #0f1311;
-    --background-elevated: #171c19;
-    --background-card:     #141917;
-    --background-card-hi:  #1b211e;
-    --foreground:          #dbe2de; /* 14.22:1 */
-    --foreground-strong:   #f0f3f1;
-    --foreground-muted:    #a3aba7; /* 7.97:1 */
-    --foreground-subtle:   #787f7b;
-    --border:              #2d342f;
-    --border-strong:       #434b46;
-    --accent:              #74cca1; /* 9.71:1 */
-    --accent-soft:         rgba(116, 204, 161, 0.13);
-    --info:                #60a5fa;
-    --info-soft:           rgba(96, 165, 250, 0.12);
-  }
-}
-
+/* Dark is opt-in: applied only when the toggle sets data-theme="dark".
+   The OS preference deliberately does NOT switch the palette. */
 html[data-theme="dark"] {
   --background:          #0f1311;
   --background-elevated: #171c19;
@@ -84,7 +65,8 @@ html[data-theme="dark"] {
   --font-mono: var(--font-plex-mono);
 }
 
-html { color-scheme: light dark; }
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
