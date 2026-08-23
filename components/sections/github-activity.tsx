@@ -17,40 +17,29 @@ export async function GithubActivity() {
     >
       <SectionHead name="activity" aside="GitHub · last 12 months" />
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] border border-border bg-background-card">
-        <div className="p-5 sm:p-6 border-b md:border-b-0 md:border-r border-border overflow-x-auto">
+      <div className="border border-border rounded-[8px] bg-background-card">
+        <div className="p-5 sm:p-6 overflow-x-auto">
           <div className="flex justify-between items-center mb-3.5 text-[14px] text-foreground-muted uppercase tracking-[0.1em]">
             <span>contribution heatmap · 52w</span>
             <span>UTC−3</span>
           </div>
           <HeatmapGrid calendar={data} />
-        </div>
 
-        <div className="p-5 grid gap-4 content-start">
-          <div className="grid grid-cols-[1fr_auto] items-baseline border-b border-dashed border-border pb-2">
-            <span className="text-[14px] text-foreground-muted uppercase tracking-[0.08em]">contributions · 12mo</span>
-            <span className="font-mono text-xl">
-              <em className="not-italic text-accent">{data.totalContributions.toLocaleString()}</em>
+          <div className="mt-5 pt-4 border-t border-dashed border-border flex items-baseline gap-3 flex-wrap">
+            <span className="text-[14px] text-foreground-muted uppercase tracking-[0.08em]">
+              contributions · 12mo
             </span>
-          </div>
-          <div className="grid grid-cols-[1fr_auto] items-baseline border-b border-dashed border-border pb-2">
-            <span className="text-[14px] text-foreground-muted uppercase tracking-[0.08em]">weeks shown</span>
-            <span className="font-mono text-xl text-foreground-strong">{data.weeks.length}</span>
-          </div>
-          <div className="grid grid-cols-[1fr_auto] items-baseline border-b border-dashed border-border pb-2">
-            <span className="text-[14px] text-foreground-muted uppercase tracking-[0.08em]">repos included</span>
-            <span className="font-mono text-[16px] text-foreground-strong">public + private</span>
-          </div>
-          <div className="grid grid-cols-[1fr_auto] items-baseline">
-            <span className="text-[14px] text-foreground-muted uppercase tracking-[0.08em]">refresh</span>
-            <span className="font-mono text-[16px] text-foreground-strong">~hourly</span>
+            <span className="font-mono text-2xl font-medium text-accent">
+              {data.totalContributions.toLocaleString()}
+            </span>
           </div>
         </div>
       </div>
 
-      <p className="mt-3.5 py-2.5 px-3.5 font-sans text-[15.5px] leading-[1.5] text-foreground-muted italic border-l-2 border-border-strong max-w-[80ch]">
-        <b className="text-foreground-strong not-italic font-medium">Caveat:</b>{" "}
-        commit count is a silly metric, treat this as a fingerprint, not a measure.
+      <p className="mt-4 py-3 px-4 font-sans text-[15.5px] leading-[1.55] text-foreground bg-accent-soft border-l-2 border-accent rounded-r-[6px] max-w-[80ch]">
+        <b className="text-accent font-semibold">Caveat:</b>{" "}
+        Commit count is a silly metric. Green squares aren&apos;t shipped
+        software.
       </p>
     </section>
   );
