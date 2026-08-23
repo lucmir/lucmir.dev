@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — light by default, deep-green accent.
+   Color tokens — light by default, amber accent.
    - :root                → light (the default for everyone)
    - [data-theme="dark"]  → dark, set only by the toggle
    - [data-theme="light"] → light (explicitly stored choice)
@@ -20,8 +20,8 @@
   --foreground-subtle:   #6e7571;
   --border:              #dbdcd7;
   --border-strong:       #b8bbb4;
-  --accent:              #256a4a; /* 6.26:1 */
-  --accent-soft:         rgba(37, 106, 74, 0.10);
+  --accent:              #a4530d; /* 5.31:1 */
+  --accent-soft:         rgba(164, 83, 13, 0.09);
   --info:                #2563eb;
   --info-soft:           rgba(37, 99, 235, 0.09);
 }
@@ -39,8 +39,8 @@ html[data-theme="dark"] {
   --foreground-subtle:   #787f7b;
   --border:              #2d342f;
   --border-strong:       #434b46;
-  --accent:              #74cca1;
-  --accent-soft:         rgba(116, 204, 161, 0.13);
+  --accent:              #eda76a; /* 9.22:1 */
+  --accent-soft:         rgba(237, 167, 106, 0.13);
   --info:                #60a5fa;
   --info-soft:           rgba(96, 165, 250, 0.12);
 }
