@@ -57,7 +57,7 @@ const personJsonLd = {
   description: DESCRIPTION,
   url: SITE_URL,
   email: `mailto:${profile.email}`,
-  image: `${SITE_URL}/eu-serious.png`,
+  image: `${SITE_URL}/profile.png`,
   sameAs: [profile.links.github, profile.links.linkedin],
   address: {
     "@type": "PostalAddress",

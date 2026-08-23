@@ -139,12 +139,16 @@ export async function Hero() {
 
         {/* ID card */}
         <aside className="w-full md:w-[220px] border border-border bg-background-card">
-          <div className="aspect-[1/1.05] overflow-hidden border-b border-border [filter:saturate(.85)_contrast(1.02)]">
+          {/* Cut-out portrait on a tinted panel: the backdrop is what keeps the
+              dark hair and shirt separated from the card in dark mode. The old
+              saturate/contrast filter is gone — it existed to tame the warm
+              lighting of the previous photo. */}
+          <div className="aspect-[1/1.05] overflow-hidden border-b border-border bg-background-card-hi">
             <Image
-              src="/eu-profile.png"
+              src="/profile-cutout.png"
               alt="Lucas Cunha"
-              width={479}
-              height={479}
+              width={600}
+              height={600}
               priority
               className="w-full h-full object-cover"
             />

@@ -9,7 +9,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpengraphImage() {
-  const photo = await readFile(join(process.cwd(), "public", "eu-serious.png"));
+  const photo = await readFile(join(process.cwd(), "public", "profile.png"));
   const photoDataUrl = `data:image/png;base64,${photo.toString("base64")}`;
 
   return new ImageResponse(
