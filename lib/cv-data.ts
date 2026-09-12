@@ -40,7 +40,7 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "Senior Full-Stack Engineer",
+    role: "Senior Full-Stack Engineer & DevOps Lead",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
     bullets: [
@@ -66,7 +66,7 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "Full Stack Engineer",
+    role: "Senior Full-Stack Engineer",
     duration: "Nov 2018 — Apr 2025",
     location: "Belo Horizonte, Brazil",
     bullets: [
