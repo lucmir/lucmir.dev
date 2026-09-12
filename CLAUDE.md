@@ -12,7 +12,7 @@ The downloadable CV at `public/LucasCunha_cv.pdf` is generated from source files
 Open `cv/cv.html` and edit directly. Common edits:
 
 - **Job duration / dates** — inside the `.job-date` `<p>` for each `.job` block
-- **Skill tags** — add/remove `<span class="tag">…</span>` inside the relevant `.skill-tags` block. Categories: CORE STACK, DEVOPS, AI & AGENTS, WEB3 & IDENTITY, ENGINEERING PRACTICE
+- **Skill tags** — add/remove `<span class="tag">…</span>` inside the relevant `.skill-tags` block. Categories: CORE STACK, AI & AGENTS, FRONTEND & TESTING, CLOUD & PLATFORM, WEB3 & IDENTITY, ENGINEERING PRACTICE
 - **Summary paragraph** — `.summary` `<p>` in the right column
 - **Education / Certifications** — `.col-right` Education section. The "Claude Certified Architect — Foundations" line uses `.edu-cert`
 - **Languages** — bottom of left column, under Experience
