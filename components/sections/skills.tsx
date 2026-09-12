@@ -11,7 +11,7 @@ export function Skills() {
         name="skills"
         aside={
           <>
-            <span className="text-accent">in green</span> = primary
+            <span className="text-accent">highlighted</span> = primary
           </>
         }
       />

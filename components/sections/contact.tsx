@@ -34,7 +34,7 @@ export function Contact() {
             </a>
           </h3>
           <p className="font-sans text-[18px] leading-[1.6] text-foreground-muted max-w-[52ch] mb-4">
-            Open to senior engineering roles, infra and AI advisory, and the occasional weekend rabbit hole. Email is the fastest channel.
+            Open to senior full-stack, AI product roles, and AI advisory. Also the occasional weekend rabbit hole. Email is the fastest channel.
           </p>
           <div className="flex flex-wrap gap-2">
             <button

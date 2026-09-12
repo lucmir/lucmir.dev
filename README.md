@@ -1,6 +1,6 @@
 # lucas-cunha.com
 
-Personal site of **Lucas Cunha** — engineer building AI agents and the cloud infrastructure they run on.
+Personal site of **Lucas Cunha** — senior full-stack engineer shipping products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.
 
 Live at **[lucas-cunha.com](https://lucas-cunha.com)**.
 

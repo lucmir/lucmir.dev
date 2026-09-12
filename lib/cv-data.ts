@@ -1,8 +1,9 @@
 export const profile = {
   name: "Lucas Cunha",
-  tagline: "Building AI agents and the cloud infrastructure they run on",
+  tagline:
+    "Ships products end to end: UI, APIs, data, AI agents, and the cloud platform they run on",
   subtitle:
-    "Senior full-stack engineer with 15+ years across product, cloud, AI/MCP, and identity. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.",
+    "Senior full-stack engineer with 15+ years shipping products in TypeScript, React/Next.js, and Node.js, from identity and payments to LLM agents. Currently building AI products at Civic Technologies.",
   location: "Belo Horizonte, Brazil",
   email: "lucascmir@gmail.com",
   links: {
@@ -15,12 +16,12 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I build production AI agents and the cloud infrastructure they run on. Today I'm a full-stack engineer and DevOps lead at Civic Technologies. I build Civic MCP, a security control plane connecting AI agents to 95+ enterprise tools with guardrails, audit logging, and secure credential management; and Bryn, a signal-based GTM product where LLM agents identify company visitors and act on intent signals in real time.",
-    "Before the AI focus, I spent 15+ years building and operating large-scale distributed systems: full-stack engineering across identity, payments, and on-chain credentials; cloud architecture on AWS with Kubernetes, Terraform, and GitOps; observability and incident response at scale.",
+    "I build products end to end: the UI, the APIs, the data model, and the AI agents behind them. Today I'm a senior full-stack engineer at Civic Technologies. I build Civic MCP, a security control plane connecting AI agents to 95+ enterprise tools with guardrails, audit logging, and secure credential management; and Bryn, a signal-based GTM product where LLM agents identify company visitors and act on intent signals in real time.",
+    "Before the AI focus, I spent 15+ years shipping full-stack products: a complete identity and authentication platform on Next.js and React, on-chain credentials that scaled past 1M issued, wallet and payment APIs on Node.js, an API-management platform, and video and e-learning platforms. I also own the path to production, so the AWS platform, deploys, and observability underneath my products are mine too.",
     "BSc + MSc in Computer Science from UFMG. Comfortable in TypeScript, Node.js, Python, React, and Next.js, and increasingly in writing the agents that write the code.",
   ],
   currently:
-    "Building Civic MCP and Bryn at Civic, alongside leading DevOps and infrastructure. Shipping LLM agent workflows, exploring advanced agent patterns and skill design.",
+    "Building Civic MCP and Bryn at Civic: LLM agent workflows, the product surfaces around them, and the cloud platform they run on. Exploring advanced agent patterns and skill design.",
 } as const;
 
 export type ExperienceItem = {
@@ -39,18 +40,26 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "Full-Stack Engineer & DevOps Lead",
+    role: "Senior Full-Stack Engineer",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
     bullets: [
-      "Civic MCP (AI): build and operate an AI agent security control plane using MCP to connect agents to 95+ enterprise tools, with guardrails, audit logging, and secure credential management",
-      "Bryn (AI): build a signal-based GTM product where LLM-powered agents identify company visitors, enrich and score intent signals, and trigger automated plays into Slack and CRM",
-      "Lead infrastructure, DevOps, observability, analytics pipelines, and scalability across all Civic products",
-      "Operate AWS at scale: EKS, EC2, Lambda, DynamoDB, S3, CloudWatch, Kinesis — across dev, staging, and production",
-      "Run Kubernetes (EKS) clusters with automated scaling and GitOps-driven deployments",
-      "Build CI/CD pipelines and infrastructure-as-code (CloudFormation, Docker, GitHub Actions)",
-      "Own end-to-end observability — New Relic, CloudWatch, Grafana, Prometheus, distributed tracing — and incident response",
-      "Drive cloud cost optimization, capacity planning, and production reliability",
+      "Civic MCP (AI): build and operate an AI agent security control plane on Model Context Protocol (TypeScript, Node.js), connecting agents to 95+ enterprise tools with guardrails, audit logging, and secure credential management",
+      "Bryn (AI): full-stack build of a signal-based GTM product: Next.js/React front end, Node.js services, and a PostgreSQL data model, where LLM-powered agents identify company visitors, enrich and score intent signals, and trigger automated plays into Slack and CRM",
+      "Bryn enrichment pipeline: design and ship the agent orchestration that combines LLM calls with third-party data providers, with evaluation and observability built in",
+      "Analytics pipeline: own the Kinesis → Lambda → Redshift pipeline that powers product usage reporting",
+      "Also lead infrastructure across Civic products (AWS/EKS, GitOps, CI/CD, observability, incident response), so every feature ships with the full deploy and reliability story",
+    ],
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "Next.js",
+      "React",
+      "PostgreSQL",
+      "Claude Agent SDK",
+      "MCP",
+      "AWS",
+      "Redshift",
     ],
   },
   {
@@ -138,6 +147,64 @@ export type SkillGroup = { name: string; items: Skill[] };
 
 export const skills: SkillGroup[] = [
   {
+    name: "Languages",
+    items: [
+      { name: "TypeScript", highlight: true },
+      { name: "JavaScript", highlight: true },
+      { name: "Node.js", highlight: true },
+      { name: "Python", highlight: true },
+      { name: "Bash" },
+      { name: "Java" },
+      { name: "Ruby" },
+    ],
+  },
+  {
+    name: "Frontend",
+    items: [
+      { name: "React", highlight: true },
+      { name: "Next.js", highlight: true },
+      { name: "Tailwind CSS", highlight: true },
+      { name: "State management", highlight: true },
+      { name: "Accessibility" },
+      { name: "Web performance" },
+      { name: "Redux" },
+    ],
+  },
+  {
+    name: "Backend & APIs",
+    items: [
+      { name: "Hono", highlight: true },
+      { name: "Express", highlight: true },
+      { name: "REST APIs", highlight: true },
+      { name: "Event-driven (Kafka, SNS/SQS, EventBridge)", highlight: true },
+      { name: "Serverless", highlight: true },
+      { name: "Microservices" },
+      { name: "Django" },
+      { name: "FastAPI" },
+      { name: "Ruby on Rails" },
+      { name: "API Gateway / Kong" },
+    ],
+  },
+  {
+    name: "Data",
+    items: [
+      { name: "PostgreSQL", highlight: true },
+      { name: "Redis", highlight: true },
+      { name: "DynamoDB", highlight: true },
+      { name: "Redshift" },
+      { name: "MongoDB" },
+    ],
+  },
+  {
+    name: "Testing",
+    items: [
+      { name: "TDD", highlight: true },
+      { name: "Vitest / Jest", highlight: true },
+      { name: "Playwright" },
+      { name: "Automated testing" },
+    ],
+  },
+  {
     name: "AI & Agents",
     items: [
       { name: "Claude Agent SDK", highlight: true },
@@ -150,79 +217,17 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    name: "Cloud & Infra",
+    name: "Cloud & Platform",
     items: [
       { name: "AWS", highlight: true },
-      { name: "EKS", highlight: true },
-      { name: "Kubernetes", highlight: true },
+      { name: "Vercel", highlight: true },
       { name: "Docker", highlight: true },
       { name: "CI/CD", highlight: true },
-      { name: "GitHub Actions", highlight: true },
-      { name: "Helm", highlight: true },
-      { name: "Vercel", highlight: true },
-      { name: "Redshift", highlight: true },
-      { name: "CloudFront", highlight: true },
-      { name: "RDS", highlight: true },
-      { name: "WAF", highlight: true },
-      { name: "Lambda", highlight: true },
-      { name: "DynamoDB", highlight: true },
-      { name: "S3", highlight: true },
-      { name: "CloudFormation", highlight: true },
-      { name: "EC2", highlight: true },
-      { name: "Kinesis" },
-      { name: "Terraform" },
+      { name: "Kubernetes (EKS)" },
       { name: "GitOps" },
-      { name: "GCP" },
-    ],
-  },
-  {
-    name: "Languages",
-    items: [
-      { name: "TypeScript", highlight: true },
-      { name: "JavaScript", highlight: true },
-      { name: "Node.js", highlight: true },
-      { name: "Python", highlight: true },
-      { name: "Bash", highlight: true },
-      { name: "Java" },
-      { name: "Ruby" },
-    ],
-  },
-  {
-    name: "Frameworks",
-    items: [
-      { name: "Next.js", highlight: true },
-      { name: "React", highlight: true },
-      { name: "Express", highlight: true },
-      { name: "Django", highlight: true },
-      { name: "Tailwind CSS" },
-      { name: "FastAPI" },
-      { name: "Flask" },
-      { name: "Hono" },
-      { name: "Fastify" },
-      { name: "Ruby on Rails" },
-      { name: "Spring MVC" },
-    ],
-  },
-  {
-    name: "Observability",
-    items: [
-      { name: "Prometheus", highlight: true },
-      { name: "Grafana", highlight: true },
-      { name: "New Relic", highlight: true },
-      { name: "CloudWatch", highlight: true },
-      { name: "OpenTelemetry", highlight: true },
-      { name: "Distributed tracing (Jaeger, Tempo)" },
-      { name: "Loki" },
-      { name: "Datadog" },
-    ],
-  },
-  {
-    name: "Architecture & APIs",
-    items: [
-      { name: "Microservices", highlight: true },
-      { name: "REST APIs", highlight: true },
-      { name: "Event-driven (Kafka, SNS/SQS, EventBridge)", highlight: true },
-      { name: "API Gateway / Kong" },
+      { name: "CloudFormation / Terraform" },
+      { name: "Grafana / Prometheus" },
+      { name: "OpenTelemetry" },
     ],
   },
   {
@@ -243,14 +248,9 @@ export const skills: SkillGroup[] = [
       { name: "Technical Leadership", highlight: true },
       { name: "Mentoring", highlight: true },
       { name: "Code Review", highlight: true },
-      { name: "Incident Response", highlight: true },
       { name: "Architecture Reviews", highlight: true },
       { name: "Cross-team Collaboration", highlight: true },
       { name: "Technical Documentation", highlight: true },
-      { name: "Cost Optimization" },
-      { name: "Capacity Planning" },
-      { name: "On-call" },
-      { name: "TDD" },
     ],
   },
 ];

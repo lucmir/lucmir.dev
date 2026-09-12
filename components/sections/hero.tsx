@@ -92,7 +92,7 @@ export async function Hero() {
               <span className="text-accent">@</span>lucmir
             </span>
             <span className="text-foreground-subtle">·</span>
-            <span>Senior Full-Stack Engineer · AI Agents &amp; Cloud Infra</span>
+            <span>Senior Full-Stack Engineer · TypeScript, React, Node · AWS · AI Agents</span>
             <span className="text-foreground-subtle">·</span>
             <span>Belo Horizonte, BR</span>
           </div>
@@ -102,11 +102,11 @@ export async function Hero() {
           </h1>
 
           <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[60ch] mb-3">
-            Builds AI <b className="text-accent font-medium">agents</b>, and the cloud infrastructure they run on.
+            Ships products <b className="text-accent font-medium">end to end</b>: UI, APIs, data, AI agents, and the cloud platform they run on.
           </p>
 
           <p className="text-[16.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
-            15+ years building and operating large-scale distributed systems. I work across product, cloud, AI/MCP, and identity, with a soft spot for observability, incident response, and architectures that hold up under real users. Currently building AI agents at Civic Technologies, where I also lead DevOps and infrastructure.
+            15+ years shipping full-stack products in TypeScript, React/Next.js, and Node.js, from identity and payments to LLM agents. I own the whole path to production on AWS, so what I build actually runs.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ export async function Hero() {
             15<span className="text-[16px] text-foreground-muted ml-1">+ yr</span>
           </div>
           <div className="text-[13px] text-foreground-muted mt-1.5">
-            across cloud, AI, identity
+            across product, AI, identity
           </div>
         </div>
 
