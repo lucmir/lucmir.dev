@@ -12,7 +12,7 @@ import {
  * and recruiter agents get clean markdown instead of scraping the page.
  * Built only from static cv-data — prerendered at build time. */
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lucas-cunha.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lucas-cunha.com";
   const lines: string[] = [
     `# ${profile.name}`,
     "",

@@ -20,7 +20,7 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lucas-cunha.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lucas-cunha.com";
 const TITLE = `${profile.name} · Senior Full-Stack Engineer · TypeScript, React, Node · AI Agents`;
 const DESCRIPTION = `Personal site of ${profile.name}, a senior full-stack engineer shipping products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.`;
 
