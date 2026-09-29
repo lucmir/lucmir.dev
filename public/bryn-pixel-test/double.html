@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Double install</title>
+<style>
+ body{font:14px system-ui,sans-serif;margin:24px;max-width:960px}
+ nav a{margin-right:12px} .card{border:1px solid #ccc;border-radius:8px;padding:12px;margin:12px 0}
+ #stats{font:13px ui-monospace,monospace;background:#f4f4f4;padding:8px;border-radius:6px}
+ #log{font:12px ui-monospace,monospace;max-height:360px;overflow:auto;margin-top:8px}
+ .ok{color:#067d17}.bad{color:#b00020}.warn{color:#a15c00;font-weight:600}.info{color:#555}
+</style>
+<script src="probe.js"></script>
+<script>
+(function () {
+  window.__brynPixel = { ref: "WMGAM2E7" };
+  var s = document.createElement('script');
+  s.src = "https://bryn-preprod.civic.com/pixel/pixel.js";
+  s.async = true;
+  s.setAttribute('data-bryn-pixel-ref', "WMGAM2E7");
+  document.head.appendChild(s);
+})();
+</script>
+<script>
+(function () {
+  window.__brynPixel = { ref: "WMGAM2E7" };
+  var s = document.createElement('script');
+  s.src = "https://bryn-preprod.civic.com/pixel/pixel.js";
+  s.async = true;
+  s.setAttribute('data-bryn-pixel-ref', "WMGAM2E7");
+  document.head.appendChild(s);
+})();
+</script>
+</head><body>
+<nav><a href="default.html">default</a><a href="optout.html">optout</a><a href="double.html">double</a></nav>
+<h1>Double install</h1><p>BRYN-1958: snippet pasted twice. Expect one collect, one poll loop, one claimed instance.</p>
+<div class="card">
+  <h2>Hello, <span data-bryn-field="entity.companyName">your team</span></h2>
+  <p data-bryn-show="status=resolved">Personalized: this line appears only when the visitor resolves.</p>
+</div>
+<div id="probe" class="card"><div id="stats"></div><div id="log"></div></div>
+</body></html>
