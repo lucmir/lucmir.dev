@@ -13,7 +13,7 @@ const MONTHS = [
 function parseRange(duration: string, now: Date) {
   const [startRaw, endRaw] = duration.split(/\s*[—–-]\s*/);
   const sm = startRaw?.match(/(\w+)\s+(\d{4})/);
-  if (!sm) return { when: duration, duration: "" };
+  if (!sm) return { when: duration, duration: "", current: false };
   const sMonth = MONTHS.indexOf(sm[1]);
   const sYear = Number.parseInt(sm[2], 10);
   const startDate = new Date(sYear, Math.max(0, sMonth), 1);
@@ -26,7 +26,7 @@ function parseRange(duration: string, now: Date) {
     endYear = "Now";
   } else {
     const em = endRaw.match(/(\w+)\s+(\d{4})/);
-    if (!em) return { when: duration, duration: "" };
+    if (!em) return { when: duration, duration: "", current: false };
     endDate = new Date(Number(em[2]), Math.max(0, MONTHS.indexOf(em[1])), 1);
     endYear = Number(em[2]);
   }
@@ -43,7 +43,7 @@ function parseRange(duration: string, now: Date) {
         : `${years} yr`
       : `${months} mo`;
 
-  return { when: `${sYear} → ${endYear}`, duration: durStr };
+  return { when: `${sYear} → ${endYear}`, duration: durStr, current: isPresent };
 }
 
 /* Heuristic: wrap brand names like "Civic MCP" inside the bullet's leading
@@ -87,15 +87,28 @@ export async function Experience() {
     >
       <SectionHead name="experience" aside={`${items.length} roles · most recent first`} />
 
-      <div className="border border-border bg-background-card">
+      {/* Timeline: the column divider (card's left edge on mobile) is the
+          track. The accent fill and dots are animated by scroll in
+          globals.css; without support they render in their finished state. */}
+      <div className="exp-timeline relative border border-border bg-background-card">
+        <div
+          aria-hidden
+          className="exp-rail absolute top-0 bottom-0 -left-px md:left-[199px] w-[2px] bg-accent z-[1] pointer-events-none"
+        />
         {items.map((job, i) => {
-          const { when, duration } = parseRange(job.duration, now);
+          const { when, duration, current } = parseRange(job.duration, now);
           const isLast = i === items.length - 1;
           return (
             <article
               key={`${job.company}-${job.role}-${i}`}
-              className={`grid grid-cols-1 md:grid-cols-[200px_1fr] ${isLast ? "" : "border-b border-border"}`}
+              className={`relative grid grid-cols-1 md:grid-cols-[200px_1fr] ${isLast ? "" : "border-b border-border"}`}
             >
+              {/* Dot centred on the track, level with the date line. */}
+              <span
+                aria-hidden
+                data-current={current || undefined}
+                className="exp-dot absolute top-[28px] -left-[5px] md:left-[195px] size-[10px] rounded-full z-[2]"
+              />
               <div className="p-5 md:border-r border-b md:border-b-0 border-border text-[14.5px] grid gap-2 content-start">
                 <div className="font-mono text-accent text-[16px] font-medium">{when}</div>
                 {duration ? (

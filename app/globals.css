@@ -92,3 +92,73 @@ code, kbd, samp, pre, .font-mono {
 
 ::selection { background: var(--accent-soft); color: var(--foreground-strong); }
 * { scrollbar-color: var(--border-strong) transparent; }
+
+/* ── Experience timeline ──────────────────────────────────────────
+   Base styles are the finished state (rail drawn, dots lit), which is
+   what browsers without scroll-driven animations and reduced-motion
+   users get. Otherwise the rail grows with scroll and each dot lights
+   up as the rail's tip reaches it. Both track a "reading line" 60% down
+   the viewport: the zero-height inset (60% top, 40% bottom) collapses
+   the view range to that line, so `cover` runs from the subject's top
+   crossing it to the subject's bottom crossing it. */
+.exp-dot {
+  background: var(--accent);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+@keyframes exp-draw {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes exp-dot-on {
+  from {
+    background: var(--background-card);
+    border-color: var(--border-strong);
+    box-shadow: 0 0 0 3px transparent;
+  }
+  to {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+}
+
+@keyframes exp-pulse {
+  from { transform: scale(1);   opacity: 0.7; }
+  to   { transform: scale(2.6); opacity: 0; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .exp-timeline {
+      view-timeline: --exp-timeline block;
+      view-timeline-inset: 60% 40%;
+    }
+    /* `animation` resets animation-timeline, so the timeline goes after. */
+    .exp-rail {
+      transform-origin: top;
+      animation: exp-draw linear both;
+      animation-timeline: --exp-timeline;
+      animation-range: cover 0% cover 100%;
+    }
+    .exp-dot {
+      animation: exp-dot-on linear both;
+      animation-timeline: view(block 60% 40%);
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+/* "Live" ring on the current role. */
+@media (prefers-reduced-motion: no-preference) {
+  .exp-dot[data-current]::after {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    border: 1.5px solid var(--accent);
+    animation: exp-pulse 2.4s ease-out infinite;
+  }
+}
