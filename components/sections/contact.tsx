@@ -20,9 +20,9 @@ export function Contact() {
       id="contact"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 scroll-mt-20"
     >
-      <SectionHead name="contact" aside="Replies within 24h" />
+      <SectionHead name="contact" />
 
-      <div className="border border-border rounded-[8px] bg-background-card p-6 sm:p-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end">
+      <div className="border border-border rounded-[8px] bg-background-card p-6 sm:p-10">
         <div>
           <h3 className="font-sans text-2xl sm:text-3xl md:text-[43.5px] font-semibold tracking-[-0.02em] text-foreground-strong leading-[1.05] mb-2 mt-2">
             Email me at{" "}
@@ -51,7 +51,7 @@ export function Contact() {
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
             >
-              linkedin →
+              LinkedIn
             </a>
             <a
               href={profile.links.github}
@@ -59,26 +59,8 @@ export function Contact() {
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
             >
-              github →
+              GitHub
             </a>
-          </div>
-        </div>
-        <div className="text-[14.5px] text-foreground-muted grid gap-2 min-w-[200px]">
-          <div className="flex justify-between gap-4">
-            <span>based</span>
-            <b className="text-foreground-strong font-medium">Belo Horizonte · BR</b>
-          </div>
-          <div className="flex justify-between gap-4">
-            <span>timezone</span>
-            <b className="text-foreground-strong font-medium">UTC−3</b>
-          </div>
-          <div className="flex justify-between gap-4">
-            <span>response</span>
-            <b className="text-accent font-medium">&lt; 24h</b>
-          </div>
-          <div className="flex justify-between gap-4">
-            <span>language</span>
-            <b className="text-foreground-strong font-medium">EN · PT-BR</b>
           </div>
         </div>
       </div>
