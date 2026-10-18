@@ -9,23 +9,7 @@ export function ConsoleHello() {
     if ((window as unknown as { __helloLogged?: boolean }).__helloLogged) return;
     (window as unknown as { __helloLogged?: boolean }).__helloLogged = true;
 
-    const accent = "color: #a4530d; font-weight: 600;";
-    const muted = "color: #a1a1aa;";
-    const mono = "font-family: ui-monospace, monospace;";
-
-    console.log(
-      "%c👋 Hi! Looking under the hood?",
-      `${accent} ${mono} font-size: 14px;`,
-    );
-    console.log(
-      "%cSource: %chttps://github.com/lucmir/lucmir.dev",
-      `${muted} ${mono}`,
-      `${accent} ${mono}`,
-    );
-    console.log(
-      "%cIf you spot anything weird, open an issue. Or hire me :)",
-      `${muted} ${mono} font-style: italic;`,
-    );
+    console.log("source: https://github.com/lucmir/lucmir.dev");
   }, []);
 
   return null;
