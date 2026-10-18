@@ -1,8 +1,5 @@
-import { BackToTop } from "@/components/back-to-top";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
-import { Reveal } from "@/components/reveal";
-import { ScrollProgress } from "@/components/scroll-progress";
 import { About } from "@/components/sections/about";
 import { Certifications } from "@/components/sections/certifications";
 import { Contact } from "@/components/sections/contact";
@@ -18,31 +15,15 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <Reveal>
-          <About />
-        </Reveal>
-        <Reveal>
-          <GithubActivity />
-        </Reveal>
-        <Reveal>
-          <Experience />
-        </Reveal>
-        <Reveal>
-          <Skills />
-        </Reveal>
-        <Reveal>
-          <Certifications />
-        </Reveal>
-        <Reveal>
-          <Education />
-        </Reveal>
-        <Reveal>
-          <Contact />
-        </Reveal>
+        <About />
+        <GithubActivity />
+        <Experience />
+        <Skills />
+        <Certifications />
+        <Education />
+        <Contact />
       </main>
       <Footer />
-      <BackToTop />
-      <ScrollProgress />
     </>
   );
 }
