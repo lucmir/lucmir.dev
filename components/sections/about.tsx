@@ -25,18 +25,7 @@ export function About() {
                 i === 0 ? "text-foreground-strong" : "text-foreground"
               }`}
             >
-              {/* Inline-highlight "Civic Technologies" with the accent chip
-                 when it appears anywhere in the paragraph. */}
-              {p.split("Civic Technologies").map((chunk, j, arr) => (
-                <span key={j}>
-                  {chunk}
-                  {j < arr.length - 1 ? (
-                    <b className="font-sans text-accent font-semibold">
-                      Civic Technologies
-                    </b>
-                  ) : null}
-                </span>
-              ))}
+              {p}
             </p>
           ))}
         </div>

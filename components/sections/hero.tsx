@@ -102,7 +102,7 @@ export async function Hero() {
           </h1>
 
           <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[60ch] mb-3">
-            Ships products <b className="text-accent font-medium">end to end</b>: UI, APIs, data, AI agents, and the cloud platform they run on.
+            Ships products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.
           </p>
 
           <p className="text-[16.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
