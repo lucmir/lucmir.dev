@@ -30,13 +30,13 @@ export function About() {
           ))}
         </div>
 
-        <aside className="p-5 grid gap-3.5 content-start text-[14.5px]">
+        <aside className="p-5 grid gap-3.5 content-start text-[14.5px] bg-yellow">
           {SIDE_META.map((row) => (
             <div key={row.k}>
-              <div className="text-foreground-muted uppercase tracking-[0.1em] text-[13px] mb-1">
+              <div className="text-ink-muted uppercase tracking-[0.1em] text-[13px] mb-1">
                 {row.k}
               </div>
-              <div className={row.accent ? "text-accent text-[15.5px]" : "text-foreground-strong text-[15.5px]"}>
+              <div className={row.accent ? "text-brand font-semibold text-[15.5px]" : "text-ink text-[15.5px]"}>
                 {row.v}
               </div>
             </div>
@@ -55,8 +55,8 @@ export function SectionHead({
   aside?: React.ReactNode;
 }) {
   return (
-    <div className="flex items-baseline justify-between mb-6 gap-4 flex-wrap border-b border-border pb-3">
-      <h2 className="font-sans text-[24px] font-semibold tracking-[-0.012em] capitalize text-foreground-strong m-0">
+    <div className="flex items-end justify-between mb-7 gap-4 flex-wrap border-b-2 border-brand pb-3">
+      <h2 className="display text-brand text-[clamp(2.4rem,6vw,4.25rem)] m-0">
         {name}
       </h2>
       {aside ? (

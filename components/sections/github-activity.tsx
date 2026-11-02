@@ -38,7 +38,7 @@ export async function GithubActivity() {
 
       <p className="mt-4 py-3 px-4 font-sans text-[15.5px] leading-[1.55] text-foreground bg-accent-soft border-l-2 border-accent rounded-r-[6px] max-w-[80ch]">
         <b className="text-accent font-semibold">Caveat:</b>{" "}
-        Commit count is a silly metric. Green squares aren&apos;t shipped
+        Commit count is a silly metric. Colored squares aren&apos;t shipped
         software.
       </p>
     </section>

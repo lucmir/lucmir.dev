@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — light by default, amber accent.
+   Color tokens — light by default, poster red on cream (experiment).
    - :root                → light (the default for everyone)
    - [data-theme="dark"]  → dark, set only by the toggle
    - [data-theme="light"] → light (explicitly stored choice)
@@ -9,40 +9,54 @@
    background before it lands here; see the contrast note per pair.
    ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Light (baseline) */
-  --background:          #fbfbfa;
-  --background-elevated: #ffffff;
-  --background-card:     #ffffff;
-  --background-card-hi:  #f4f4f2;
-  --foreground:          #2b322e; /* 12.69:1 */
-  --foreground-strong:   #141816;
-  --foreground-muted:    #525955; /* 6.95:1 */
-  --foreground-subtle:   #6e7571;
-  --border:              #dbdcd7;
-  --border-strong:       #b8bbb4;
-  --accent:              #a4530d; /* 5.31:1 */
-  --accent-soft:         rgba(164, 83, 13, 0.09);
-  --info:                #2563eb;
-  --info-soft:           rgba(37, 99, 235, 0.09);
+  /* Light (baseline) — cream paper, poster red, pink + mustard supports */
+  --background:          #ebe9e1;
+  --background-elevated: #f6f4ed;
+  --background-card:     #f3f1ea;
+  --background-card-hi:  #e3e0d5;
+  --foreground:          #2a1f1a; /* 12.9:1 */
+  --foreground-strong:   #180f0c;
+  --foreground-muted:    #5c4f48; /* 6.6:1 */
+  --foreground-subtle:   #7a6c64;
+  --border:              #d6d1c3;
+  --border-strong:       #b7afa0;
+  --accent:              #c2300c; /* text-safe red, 4.6:1 on cream */
+  --accent-soft:         rgba(228, 61, 18, 0.10);
+  --brand:               #e43d12; /* display / fills */
+  --brand-ink:           #fbf4ea; /* text on brand */
+  --pink:                #d6536d;
+  --pink-soft:           #ffa2b6;
+  --yellow:              #efb11d;
+  --ink:                 #180f0c; /* text on pink/yellow fills, both themes */
+  --ink-muted:           rgba(24, 15, 12, 0.68);
+  --info:                #a83a4f;
+  --info-soft:           rgba(214, 83, 109, 0.12);
 }
 
 /* Dark is opt-in: applied only when the toggle sets data-theme="dark".
    The OS preference deliberately does NOT switch the palette. */
 html[data-theme="dark"] {
-  --background:          #0f1311;
-  --background-elevated: #171c19;
-  --background-card:     #141917;
-  --background-card-hi:  #1b211e;
-  --foreground:          #dbe2de;
-  --foreground-strong:   #f0f3f1;
-  --foreground-muted:    #a3aba7;
-  --foreground-subtle:   #787f7b;
-  --border:              #2d342f;
-  --border-strong:       #434b46;
-  --accent:              #eda76a; /* 9.22:1 */
-  --accent-soft:         rgba(237, 167, 106, 0.13);
-  --info:                #60a5fa;
-  --info-soft:           rgba(96, 165, 250, 0.12);
+  --background:          #1a1210;
+  --background-elevated: #241a17;
+  --background-card:     #201714;
+  --background-card-hi:  #2b201c;
+  --foreground:          #efe6da;
+  --foreground-strong:   #fbf4ea;
+  --foreground-muted:    #b8aa9e;
+  --foreground-subtle:   #8a7d72;
+  --border:              #3a2c27;
+  --border-strong:       #54423b;
+  --accent:              #ff7a55; /* 7.1:1 */
+  --accent-soft:         rgba(255, 122, 85, 0.14);
+  --brand:               #e43d12;
+  --brand-ink:           #fbf4ea;
+  --pink:                #e8718a;
+  --pink-soft:           #ffa2b6;
+  --yellow:              #f3bc3a;
+  --ink:                 #180f0c;
+  --ink-muted:           rgba(24, 15, 12, 0.68);
+  --info:                #ff9bb0;
+  --info-soft:           rgba(255, 155, 176, 0.14);
 }
 
 /* Tailwind v4 theme tokens — map CSS vars to utility classes */
@@ -61,8 +75,16 @@ html[data-theme="dark"] {
   --color-accent-soft:         var(--accent-soft);
   --color-info:                var(--info);
   --color-info-soft:           var(--info-soft);
+  --color-brand:               var(--brand);
+  --color-brand-ink:           var(--brand-ink);
+  --color-pink:                var(--pink);
+  --color-pink-soft:           var(--pink-soft);
+  --color-yellow:              var(--yellow);
+  --color-ink:                 var(--ink);
+  --color-ink-muted:           var(--ink-muted);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-anton);
 }
 
 html { color-scheme: light; }
@@ -90,7 +112,15 @@ code, kbd, samp, pre, .font-mono {
   font-feature-settings: "zero", "ss01", "tnum";
 }
 
-::selection { background: var(--accent-soft); color: var(--foreground-strong); }
+::selection { background: var(--pink-soft); color: var(--foreground-strong); }
+
+/* Poster display type: tight, uppercase, no anti-aliased fuzz at size. */
+.display {
+  font-family: var(--font-anton), Impact, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+}
 * { scrollbar-color: var(--border-strong) transparent; }
 
 /* ── Experience timeline ──────────────────────────────────────────

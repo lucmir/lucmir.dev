@@ -22,25 +22,25 @@ export function Contact() {
     >
       <SectionHead name="contact" />
 
-      <div className="border border-border rounded-[8px] bg-background-card p-6 sm:p-10">
+      <div className="rounded-[8px] bg-pink-soft text-ink p-6 sm:p-10">
         <div>
-          <h3 className="font-sans text-2xl sm:text-3xl md:text-[43.5px] font-semibold tracking-[-0.02em] text-foreground-strong leading-[1.05] mb-2 mt-2">
+          <h3 className="display text-[clamp(2.2rem,5.5vw,4rem)] text-ink mb-3 mt-1">
             Email me at{" "}
             <a
               href={`mailto:${profile.email}`}
-              className="text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors"
+              className="text-brand underline decoration-brand/40 underline-offset-[6px] hover:decoration-brand transition-colors normal-case"
             >
               {profile.email}
             </a>
           </h3>
-          <p className="font-sans text-[18px] leading-[1.6] text-foreground-muted max-w-[52ch] mb-4">
+          <p className="font-sans text-[18px] leading-[1.6] text-ink-muted max-w-[52ch] mb-4">
             Open to senior full-stack, AI product roles, and AI advisory.
           </p>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={onCopy}
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-accent-soft border border-[color-mix(in_oklab,var(--accent)_50%,var(--border-strong))] text-accent hover:bg-[color-mix(in_oklab,var(--accent)_18%,transparent)] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 font-sans text-[16px] font-semibold rounded-[6px] bg-brand border border-brand text-brand-ink hover:bg-accent hover:border-accent transition-colors"
             >
               {copied ? <Check className="size-3.5" /> : <Mail className="size-3.5" />}
               {copied ? "copied" : "copy email"}
@@ -49,7 +49,7 @@ export function Contact() {
               href={profile.links.linkedin}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-[rgba(255,255,255,0.55)] border border-ink/25 text-ink hover:border-brand hover:text-brand transition-colors"
             >
               LinkedIn
             </a>
@@ -57,7 +57,7 @@ export function Contact() {
               href={profile.links.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-background-elevated border border-border-strong text-foreground-strong hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-[rgba(255,255,255,0.55)] border border-ink/25 text-ink hover:border-brand hover:text-brand transition-colors"
             >
               GitHub
             </a>

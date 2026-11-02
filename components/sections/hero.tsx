@@ -97,7 +97,7 @@ export async function Hero() {
             <span>Belo Horizonte, BR</span>
           </div>
 
-          <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.022em] leading-[1.02] text-foreground-strong mb-4">
+          <h1 className="display text-brand text-[clamp(3.6rem,11.5vw,9.75rem)] mb-5 -ml-[0.04em] [text-wrap:balance]">
             {profile.name}
           </h1>
 
@@ -113,7 +113,7 @@ export async function Hero() {
             <a
               href={profile.cvUrl}
               download
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-sans text-[16px] font-medium rounded-[6px] bg-accent-soft border border-[color-mix(in_oklab,var(--accent)_50%,var(--border-strong))] text-accent hover:bg-[color-mix(in_oklab,var(--accent)_18%,transparent)] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 font-sans text-[16px] font-semibold rounded-[6px] bg-brand border border-brand text-brand-ink hover:bg-accent hover:border-accent transition-colors"
             >
               <Download className="size-3.5" />
               Download CV
@@ -138,12 +138,12 @@ export async function Hero() {
         </div>
 
         {/* ID card */}
-        <aside className="w-full md:w-[220px] border border-border bg-background-card">
+        <aside className="w-full md:w-[220px] border-2 border-brand bg-background-card">
           {/* Cut-out portrait on a tinted panel: the backdrop is what keeps the
               dark hair and shirt separated from the card in dark mode. The old
               saturate/contrast filter is gone — it existed to tame the warm
               lighting of the previous photo. */}
-          <div className="aspect-[1/1.05] overflow-hidden border-b border-border bg-background-card-hi">
+          <div className="aspect-[1/1.05] overflow-hidden border-b-2 border-brand bg-pink-soft">
             <Image
               src="/profile-cutout.png"
               alt="Lucas Cunha"
@@ -175,20 +175,20 @@ export async function Hero() {
       </div>
 
       {/* Tiles */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 border border-border rounded-[6px] overflow-hidden bg-background-card">
-        <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-border">
-          <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="p-4 sm:p-5 rounded-[6px] bg-yellow text-ink">
+          <div className="text-[13px] text-ink-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>experience</span>
           </div>
-          <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
-            15<span className="text-[16px] text-foreground-muted ml-1">+ yr</span>
+          <div className="font-mono font-medium text-2xl sm:text-3xl text-ink leading-none tracking-[-0.01em]">
+            15<span className="text-[16px] text-ink-muted ml-1">+ yr</span>
           </div>
-          <div className="text-[13px] text-foreground-muted mt-1.5">
+          <div className="text-[13px] text-ink-muted mt-1.5">
             across product, AI, identity
           </div>
         </div>
 
-        <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-border">
+        <div className="p-4 sm:p-5 rounded-[6px] bg-background-card border border-border">
           <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>companies</span><span>career</span>
           </div>
@@ -198,14 +198,14 @@ export async function Hero() {
           <CompanyTimeline spans={timeline} />
         </div>
 
-        <div className="p-4 sm:p-5">
-          <div className="text-[13px] text-foreground-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+        <div className="p-4 sm:p-5 rounded-[6px] bg-pink-soft text-ink">
+          <div className="text-[13px] text-ink-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>degrees</span><span>computer science</span>
           </div>
-          <div className="font-mono font-medium text-2xl sm:text-3xl text-foreground-strong leading-none tracking-[-0.01em]">
+          <div className="font-mono font-medium text-2xl sm:text-3xl text-ink leading-none tracking-[-0.01em]">
             2
           </div>
-          <div className="text-[13px] text-foreground-muted mt-1.5">
+          <div className="text-[13px] text-ink-muted mt-1.5">
             BSc + MSc, UFMG
           </div>
         </div>

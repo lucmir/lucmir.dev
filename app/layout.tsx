@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Anton, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
@@ -11,6 +11,13 @@ import "./globals.css";
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
   weight: ["400", "500", "600"],
+  subsets: ["latin"],
+});
+
+// Display face for the poster-style headlines (hero name, section heads).
+const anton = Anton({
+  variable: "--font-anton",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -102,7 +109,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${plexSans.variable} ${plexMono.variable} ${anton.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

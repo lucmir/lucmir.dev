@@ -92,7 +92,7 @@ export function Nav() {
           onClick={() => setMenuOpen(false)}
           className="inline-flex items-center gap-2.5 text-foreground-strong text-[16px]"
         >
-          <span className="grid place-items-center size-[22px] text-[14px] font-semibold text-accent border border-accent bg-accent-soft">
+          <span className="display grid place-items-center size-[22px] text-[15px] pt-px text-brand-ink bg-brand">
             L
           </span>
           <span>
