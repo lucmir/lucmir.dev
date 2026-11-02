@@ -37,7 +37,6 @@ pnpm lint        # eslint
 | Variable               | Required | Purpose                                     |
 | ---------------------- | -------- | ------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL` | No       | Canonical site URL used in metadata, sitemap, and OG tags. Defaults to `https://www.lucas-cunha.com`. |
-| `GITHUB_TOKEN`         | No       | GitHub GraphQL token for the contribution heatmap. Without it the activity section is hidden. |
 
 ## Project layout
 

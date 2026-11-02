@@ -5,7 +5,7 @@ import { fetchContributions } from "@/lib/github";
 export async function GithubActivity() {
   const data = await fetchContributions();
 
-  // No data (missing GITHUB_TOKEN or API failure): hide the section rather
+  // No data (github.com unreachable or its markup changed): hide the section rather
   // than show visitors an internal setup message. The nav link to #activity
   // becomes a no-op in that state, which is acceptable for a fallback.
   if (!data) return null;
