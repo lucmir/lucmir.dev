@@ -7,13 +7,14 @@ import type {
   ContributionLevel,
 } from "@/lib/github";
 
-// Ramp: grey-lilac → light olive → olive → terracotta for the hottest days.
+// Ramp lives in globals.css (--heat-1..4) so dark mode can invert the olive
+// steps; level 1 is a clear step up from "none" rather than a near-neutral.
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
-  NONE: "bg-foreground/[0.05]",
-  FIRST_QUARTILE: "bg-mist",
-  SECOND_QUARTILE: "bg-sage-soft",
-  THIRD_QUARTILE: "bg-sage",
-  FOURTH_QUARTILE: "bg-brand",
+  NONE: "bg-foreground/[0.06]",
+  FIRST_QUARTILE: "bg-heat-1",
+  SECOND_QUARTILE: "bg-heat-2",
+  THIRD_QUARTILE: "bg-heat-3",
+  FOURTH_QUARTILE: "bg-heat-4",
 };
 
 const MONTH_SHORT = [

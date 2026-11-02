@@ -33,6 +33,11 @@
   --ink-inv-muted:       rgba(243, 241, 236, 0.74);
   --info:                #4f6b3a;
   --info-soft:           rgba(89, 98, 53, 0.12);
+  /* Heatmap ramp: clearly above "none" at level 1, terracotta at the top */
+  --heat-1:              #c3cb9e;
+  --heat-2:              #8e9a62;
+  --heat-3:              #596235;
+  --heat-4:              #d96846;
 }
 
 /* Dark is opt-in: applied only when the toggle sets data-theme="dark".
@@ -61,6 +66,10 @@ html[data-theme="dark"] {
   --ink-inv-muted:       rgba(243, 241, 236, 0.74);
   --info:                #a9b87c;
   --info-soft:           rgba(169, 184, 124, 0.14);
+  --heat-1:              #4a5233;
+  --heat-2:              #6f7b47;
+  --heat-3:              #9aa86a;
+  --heat-4:              #d96846;
 }
 
 /* Tailwind v4 theme tokens — map CSS vars to utility classes */
@@ -88,6 +97,10 @@ html[data-theme="dark"] {
   --color-ink-muted:           var(--ink-muted);
   --color-ink-inv:             var(--ink-inv);
   --color-ink-inv-muted:       var(--ink-inv-muted);
+  --color-heat-1:              var(--heat-1);
+  --color-heat-2:              var(--heat-2);
+  --color-heat-3:              var(--heat-3);
+  --color-heat-4:              var(--heat-4);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
   --font-display: var(--font-anton);
