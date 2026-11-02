@@ -7,13 +7,13 @@ import type {
   ContributionLevel,
 } from "@/lib/github";
 
-// Poster ramp: quiet pink → pink → red → mustard for the hottest days.
+// Ramp: grey-lilac → light olive → olive → terracotta for the hottest days.
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
   NONE: "bg-foreground/[0.05]",
-  FIRST_QUARTILE: "bg-pink-soft",
-  SECOND_QUARTILE: "bg-pink",
-  THIRD_QUARTILE: "bg-brand",
-  FOURTH_QUARTILE: "bg-yellow",
+  FIRST_QUARTILE: "bg-mist",
+  SECOND_QUARTILE: "bg-sage-soft",
+  THIRD_QUARTILE: "bg-sage",
+  FOURTH_QUARTILE: "bg-brand",
 };
 
 const MONTH_SHORT = [

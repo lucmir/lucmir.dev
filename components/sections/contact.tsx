@@ -22,7 +22,7 @@ export function Contact() {
     >
       <SectionHead name="contact" />
 
-      <div className="rounded-[8px] bg-pink-soft text-ink p-6 sm:p-10">
+      <div className="rounded-[8px] bg-mist text-ink p-6 sm:p-10">
         <div>
           <h3 className="display text-[clamp(2.2rem,5.5vw,4rem)] text-ink mb-3 mt-1">
             Email me at{" "}

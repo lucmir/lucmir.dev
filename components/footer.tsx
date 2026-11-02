@@ -9,7 +9,7 @@ export async function Footer() {
     <footer className="bg-brand text-brand-ink mt-6">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[15px] font-sans">
         <p>
-          <span className="text-yellow">©</span> {new Date().getFullYear()} {profile.name}
+          <span className="text-mist">©</span> {new Date().getFullYear()} {profile.name}
         </p>
         <p>Belo Horizonte · UTC−3</p>
       </div>

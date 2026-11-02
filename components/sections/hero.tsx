@@ -143,7 +143,7 @@ export async function Hero() {
               dark hair and shirt separated from the card in dark mode. The old
               saturate/contrast filter is gone — it existed to tame the warm
               lighting of the previous photo. */}
-          <div className="aspect-[1/1.05] overflow-hidden border-b-2 border-brand bg-pink-soft">
+          <div className="aspect-[1/1.05] overflow-hidden border-b-2 border-brand bg-mist">
             <Image
               src="/profile-cutout.png"
               alt="Lucas Cunha"
@@ -176,14 +176,14 @@ export async function Hero() {
 
       {/* Tiles */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
-        <div className="p-4 sm:p-5 rounded-[6px] bg-yellow text-ink">
-          <div className="text-[13px] text-ink-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
+        <div className="p-4 sm:p-5 rounded-[6px] bg-sage text-ink-inv">
+          <div className="text-[13px] text-ink-inv-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>experience</span>
           </div>
           <div className="font-mono font-medium text-2xl sm:text-3xl text-ink leading-none tracking-[-0.01em]">
-            15<span className="text-[16px] text-ink-muted ml-1">+ yr</span>
+            15<span className="text-[16px] text-ink-inv-muted ml-1">+ yr</span>
           </div>
-          <div className="text-[13px] text-ink-muted mt-1.5">
+          <div className="text-[13px] text-ink-inv-muted mt-1.5">
             across product, AI, identity
           </div>
         </div>
@@ -198,7 +198,7 @@ export async function Hero() {
           <CompanyTimeline spans={timeline} />
         </div>
 
-        <div className="p-4 sm:p-5 rounded-[6px] bg-pink-soft text-ink">
+        <div className="p-4 sm:p-5 rounded-[6px] bg-mist text-ink">
           <div className="text-[13px] text-ink-muted uppercase tracking-[0.12em] mb-2 flex justify-between">
             <span>degrees</span><span>computer science</span>
           </div>

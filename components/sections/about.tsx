@@ -30,13 +30,13 @@ export function About() {
           ))}
         </div>
 
-        <aside className="p-5 grid gap-3.5 content-start text-[14.5px] bg-yellow">
+        <aside className="p-5 grid gap-3.5 content-start text-[14.5px] bg-sage text-ink-inv">
           {SIDE_META.map((row) => (
             <div key={row.k}>
-              <div className="text-ink-muted uppercase tracking-[0.1em] text-[13px] mb-1">
+              <div className="text-ink-inv-muted uppercase tracking-[0.1em] text-[13px] mb-1">
                 {row.k}
               </div>
-              <div className={row.accent ? "text-brand font-semibold text-[15.5px]" : "text-ink text-[15.5px]"}>
+              <div className={row.accent ? "text-ink-inv font-semibold text-[15.5px] underline decoration-brand decoration-2 underline-offset-4" : "text-ink-inv text-[15.5px]"}>
                 {row.v}
               </div>
             </div>

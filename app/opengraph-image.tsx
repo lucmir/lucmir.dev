@@ -12,17 +12,16 @@ export const contentType = "image/png";
    read CSS variables, so the values are inlined here — keep them in sync
    if the palette changes. */
 const C = {
-  background: "#ebe9e1",
-  card: "#f3f1ea",
-  ink: "#180f0c",
-  foreground: "#2a1f1a",
-  muted: "#5c4f48",
-  subtle: "#7a6c64",
-  border: "#d6d1c3",
-  brand: "#e43d12",
-  brandInk: "#fbf4ea",
-  pinkSoft: "#ffa2b6",
-  yellow: "#efb11d",
+  background: "#ecebf0",
+  card: "#f3f2f6",
+  ink: "#1f2015",
+  foreground: "#2f3020",
+  muted: "#5b5c4e",
+  subtle: "#76776a",
+  border: "#cdcbd6",
+  brand: "#d96846",
+  brandInk: "#f7f3ee",
+  mist: "#cdcbd6",
 };
 
 
@@ -114,7 +113,7 @@ export default async function OpengraphImage() {
               </div>
             </div>
 
-            {/* ID card, like the hero aside: pink portrait panel, red frame */}
+            {/* ID card, like the hero aside: grey-lilac portrait panel, terracotta frame */}
             <div
               style={{
                 display: "flex",
@@ -129,7 +128,7 @@ export default async function OpengraphImage() {
                   display: "flex",
                   width: 248,
                   height: 260,
-                  background: C.pinkSoft,
+                  background: C.mist,
                   borderBottom: `2px solid ${C.brand}`,
                   overflow: "hidden",
                 }}
@@ -181,7 +180,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span style={{ display: "flex", gap: 10 }}>
-            <span style={{ color: C.yellow }}>©</span>
+            <span style={{ color: C.mist }}>©</span>
             <span>lucas-cunha.com</span>
           </span>
           <span>Belo Horizonte · UTC−3</span>

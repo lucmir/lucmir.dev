@@ -11,7 +11,7 @@ export function Skills() {
         name="skills"
         aside={
           <>
-            <span className="bg-yellow text-ink px-1.5 py-0.5 rounded-[4px]">highlighted</span> = primary
+            <span className="bg-sage text-ink-inv px-1.5 py-0.5 rounded-[4px]">highlighted</span> = primary
           </>
         }
       />
@@ -34,7 +34,7 @@ export function Skills() {
                 {group.items.map((s) => (
                   <span
                     key={s.name}
-                    className={s.highlight ? "bg-yellow text-ink px-1.5 py-0.5 rounded-[4px] font-medium" : "text-foreground-muted"}
+                    className={s.highlight ? "bg-sage text-ink-inv px-1.5 py-0.5 rounded-[4px] font-medium" : "text-foreground-muted"}
                   >
                     {s.name}
                   </span>

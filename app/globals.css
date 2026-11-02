@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — light by default, poster red on cream (experiment).
+   Color tokens — light by default, terracotta / olive / forest on grey-lilac.
    - :root                → light (the default for everyone)
    - [data-theme="dark"]  → dark, set only by the toggle
    - [data-theme="light"] → light (explicitly stored choice)
@@ -9,54 +9,58 @@
    background before it lands here; see the contrast note per pair.
    ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Light (baseline) — cream paper, poster red, pink + mustard supports */
-  --background:          #ebe9e1;
-  --background-elevated: #f6f4ed;
-  --background-card:     #f3f1ea;
-  --background-card-hi:  #e3e0d5;
-  --foreground:          #2a1f1a; /* 12.9:1 */
-  --foreground-strong:   #180f0c;
-  --foreground-muted:    #5c4f48; /* 6.6:1 */
-  --foreground-subtle:   #7a6c64;
-  --border:              #d6d1c3;
-  --border-strong:       #b7afa0;
-  --accent:              #c2300c; /* text-safe red, 4.6:1 on cream */
-  --accent-soft:         rgba(228, 61, 18, 0.10);
-  --brand:               #e43d12; /* display / fills */
-  --brand-ink:           #fbf4ea; /* text on brand */
-  --pink:                #d6536d;
-  --pink-soft:           #ffa2b6;
-  --yellow:              #efb11d;
-  --ink:                 #180f0c; /* text on pink/yellow fills, both themes */
-  --ink-muted:           rgba(24, 15, 12, 0.68);
-  --info:                #a83a4f;
-  --info-soft:           rgba(214, 83, 109, 0.12);
+  /* Light (baseline) — grey-lilac paper, terracotta, olive, forest ink */
+  --background:          #ecebf0;
+  --background-elevated: #f5f4f8;
+  --background-card:     #f3f2f6;
+  --background-card-hi:  #e1dfe7;
+  --foreground:          #2f3020; /* 11.6:1 */
+  --foreground-strong:   #1f2015;
+  --foreground-muted:    #5b5c4e; /* 6.3:1 */
+  --foreground-subtle:   #76776a;
+  --border:              #cdcbd6;
+  --border-strong:       #aeabbc;
+  --accent:              #a8482a; /* text-safe terracotta, 4.8:1 */
+  --accent-soft:         rgba(217, 104, 70, 0.12);
+  --brand:               #d96846; /* display / fills */
+  --brand-ink:           #f7f3ee; /* text on brand */
+  --sage:                #596235; /* olive fill */
+  --sage-soft:           #8e9a62;
+  --mist:                #cdcbd6; /* grey-lilac fill */
+  --ink:                 #1f2015; /* text on mist, both themes */
+  --ink-muted:           rgba(31, 32, 21, 0.68);
+  --ink-inv:             #f3f1ec; /* text on sage/brand, both themes */
+  --ink-inv-muted:       rgba(243, 241, 236, 0.74);
+  --info:                #4f6b3a;
+  --info-soft:           rgba(89, 98, 53, 0.12);
 }
 
 /* Dark is opt-in: applied only when the toggle sets data-theme="dark".
    The OS preference deliberately does NOT switch the palette. */
 html[data-theme="dark"] {
-  --background:          #1a1210;
-  --background-elevated: #241a17;
-  --background-card:     #201714;
-  --background-card-hi:  #2b201c;
-  --foreground:          #efe6da;
-  --foreground-strong:   #fbf4ea;
-  --foreground-muted:    #b8aa9e;
-  --foreground-subtle:   #8a7d72;
-  --border:              #3a2c27;
-  --border-strong:       #54423b;
-  --accent:              #ff7a55; /* 7.1:1 */
-  --accent-soft:         rgba(255, 122, 85, 0.14);
-  --brand:               #e43d12;
-  --brand-ink:           #fbf4ea;
-  --pink:                #e8718a;
-  --pink-soft:           #ffa2b6;
-  --yellow:              #f3bc3a;
-  --ink:                 #180f0c;
-  --ink-muted:           rgba(24, 15, 12, 0.68);
-  --info:                #ff9bb0;
-  --info-soft:           rgba(255, 155, 176, 0.14);
+  --background:          #1f2117;
+  --background-elevated: #292c1f;
+  --background-card:     #25281c;
+  --background-card-hi:  #313527;
+  --foreground:          #e6e4da;
+  --foreground-strong:   #f4f2ea;
+  --foreground-muted:    #b1b0a2;
+  --foreground-subtle:   #858476;
+  --border:              #3e4230;
+  --border-strong:       #575c45;
+  --accent:              #f0936e; /* 7.4:1 */
+  --accent-soft:         rgba(240, 147, 110, 0.14);
+  --brand:               #d96846;
+  --brand-ink:           #f7f3ee;
+  --sage:                #6b7742;
+  --sage-soft:           #8e9a62;
+  --mist:                #cdcbd6;
+  --ink:                 #1f2015;
+  --ink-muted:           rgba(31, 32, 21, 0.68);
+  --ink-inv:             #f3f1ec;
+  --ink-inv-muted:       rgba(243, 241, 236, 0.74);
+  --info:                #a9b87c;
+  --info-soft:           rgba(169, 184, 124, 0.14);
 }
 
 /* Tailwind v4 theme tokens — map CSS vars to utility classes */
@@ -77,11 +81,13 @@ html[data-theme="dark"] {
   --color-info-soft:           var(--info-soft);
   --color-brand:               var(--brand);
   --color-brand-ink:           var(--brand-ink);
-  --color-pink:                var(--pink);
-  --color-pink-soft:           var(--pink-soft);
-  --color-yellow:              var(--yellow);
+  --color-sage:                var(--sage);
+  --color-sage-soft:           var(--sage-soft);
+  --color-mist:                var(--mist);
   --color-ink:                 var(--ink);
   --color-ink-muted:           var(--ink-muted);
+  --color-ink-inv:             var(--ink-inv);
+  --color-ink-inv-muted:       var(--ink-inv-muted);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
   --font-display: var(--font-anton);
@@ -112,7 +118,7 @@ code, kbd, samp, pre, .font-mono {
   font-feature-settings: "zero", "ss01", "tnum";
 }
 
-::selection { background: var(--pink-soft); color: var(--foreground-strong); }
+::selection { background: var(--mist); color: var(--foreground-strong); }
 
 /* Poster display type: tight, uppercase, no anti-aliased fuzz at size. */
 .display {
