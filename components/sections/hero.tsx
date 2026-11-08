@@ -57,6 +57,8 @@ const SHORT_NAMES: Record<string, string> = {
   "Universidade Federal de Minas Gerais": "UFMG",
 };
 
+const STACK = ["UI", "APIs", "data", "AI agents", "the cloud platform they run on"];
+
 export async function Hero() {
   "use cache";
   // "now" feeds the company timeline / "Present" durations. Cached with a
@@ -101,15 +103,28 @@ export async function Hero() {
             {profile.name}
           </h1>
 
-          {/* w-fit wrapper sizes to the sub-title; the body copy's w-0 +
-              min-w-full keeps it out of that sizing and stretches it to the
-              same width, so both share a right edge. */}
-          <div className="w-fit max-w-full mb-7">
-            <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[30.5em] mb-3">
-              Ships products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.
-            </p>
+          <div className="mb-7">
+            {/* Tagline as a pull-quote: brand rule on the left, headline on
+                top, the stack it covers underneath with accent separators. */}
+            <div className="border-l-[3px] border-brand pl-4 mb-4">
+              <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] font-semibold leading-[1.3] text-foreground-strong">
+                Ships products <span className="text-accent">end to end</span>
+              </p>
+              <p className="mt-1 font-sans text-lg sm:text-xl leading-[1.4] text-foreground">
+                {STACK.map((item, i) => (
+                  <span key={item}>
+                    {i > 0 && (
+                      <span aria-hidden className="mx-2 text-accent">
+                        /
+                      </span>
+                    )}
+                    {item}
+                  </span>
+                ))}
+              </p>
+            </div>
 
-            <p className="w-0 min-w-full text-[16.5px] text-foreground-muted leading-[1.6]">
+            <p className="text-[16.5px] text-foreground-muted leading-[1.6]">
               15+ years shipping full-stack products in TypeScript, React/Next.js, and Node.js, from identity and payments to LLM agents.{" "}
               <b className="font-semibold text-foreground-strong">Claude Certified Architect.</b>{" "}
               I own production on AWS, so what I build actually runs.
