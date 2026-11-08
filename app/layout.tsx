@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Anton, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import Script from "next/script";
 import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
@@ -103,6 +104,18 @@ try {
 } catch (e) {}
 `;
 
+/* Bryn visitor pixel (ref KA0C109Z). Kept as the vendor's inline loader so
+   window.__brynPixel is set before pixel.js runs. See
+   https://docs.civic.com/bryn/frontend-recipes */
+const brynPixelScript = `
+window.__brynPixel = { ref: "KA0C109Z" };
+var s = document.createElement('script');
+s.src = "https://bryn.civic.com/pixel/pixel.js";
+s.async = true;
+s.setAttribute('data-bryn-pixel-ref', "KA0C109Z");
+document.head.appendChild(s);
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -122,6 +135,9 @@ export default function RootLayout({
         {children}
         <Analytics />
         <ConsoleHello />
+        <Script id="bryn-pixel" strategy="afterInteractive">
+          {brynPixelScript}
+        </Script>
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: structured data
