@@ -101,13 +101,20 @@ export async function Hero() {
             {profile.name}
           </h1>
 
-          <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[60ch] mb-3">
-            Ships products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.
-          </p>
+          {/* w-fit wrapper sizes to the sub-title; the body copy's w-0 +
+              min-w-full keeps it out of that sizing and stretches it to the
+              same width, so both share a right edge. */}
+          <div className="w-fit max-w-full mb-7">
+            <p className="font-sans text-xl sm:text-2xl md:text-[26.5px] leading-[1.4] text-foreground-strong max-w-[30.5em] mb-3">
+              Ships products end to end: UI, APIs, data, AI agents, and the cloud platform they run on.
+            </p>
 
-          <p className="text-[16.5px] text-foreground-muted max-w-[64ch] mb-7 leading-[1.6]">
-            15+ years shipping full-stack products in TypeScript, React/Next.js, and Node.js, from identity and payments to LLM agents. I own the whole path to production on AWS, so what I build actually runs.
-          </p>
+            <p className="w-0 min-w-full text-[16.5px] text-foreground-muted leading-[1.6]">
+              15+ years shipping full-stack products in TypeScript, React/Next.js, and Node.js, from identity and payments to LLM agents.{" "}
+              <b className="font-semibold text-foreground-strong">Claude Certified Architect.</b>{" "}
+              I own production on AWS, so what I build actually runs.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-2">
             <a
