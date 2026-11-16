@@ -8,30 +8,34 @@ export const alt = `${profile.name} — ${profile.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/* Mirrors the light theme tokens in app/globals.css. ImageResponse can't
-   read CSS variables, so the values are inlined here — keep them in sync
-   if the palette changes. */
+/* Mirrors the light theme tokens in app/globals.css ("Swiss signal").
+   ImageResponse can't read CSS variables, so the values are inlined here;
+   keep them in sync if the palette changes. */
 const C = {
-  background: "#ecebf0",
-  card: "#f3f2f6",
-  ink: "#1f2015",
-  foreground: "#2f3020",
-  muted: "#5b5c4e",
-  subtle: "#76776a",
-  border: "#cdcbd6",
-  brand: "#d96846",
-  brandInk: "#f7f3ee",
-  mist: "#cdcbd6",
+  background: "#f4f4f2",
+  card: "#ffffff",
+  cardHi: "#ebebe8",
+  ink: "#0d0d0d",
+  foreground: "#222222",
+  muted: "#5c5c5a",
+  subtle: "#777775",
+  border: "#e0e0dc",
+  accent: "#ff7a3d",
 };
 
+const [firstName, ...rest] = profile.name.split(" ");
+const lastName = rest.join(" ");
 
 export default async function OpengraphImage() {
+  // Satori can't use next/font, so the OG image reads vendored static TTFs
+  // (Schibsted Grotesk, OFL). Only one family is registered, so all text
+  // renders in it.
   const fonts = join(process.cwd(), "app", "fonts");
-  const [photo, anton, plex, plexBold] = await Promise.all([
+  const [photo, regular, medium, bold] = await Promise.all([
     readFile(join(process.cwd(), "public", "profile-cutout.png")),
-    readFile(join(fonts, "Anton-Regular.ttf")),
-    readFile(join(fonts, "IBMPlexSans-Regular.ttf")),
-    readFile(join(fonts, "IBMPlexSans-SemiBold.ttf")),
+    readFile(join(fonts, "SchibstedGrotesk-Regular.ttf")),
+    readFile(join(fonts, "SchibstedGrotesk-Medium.ttf")),
+    readFile(join(fonts, "SchibstedGrotesk-Bold.ttf")),
   ]);
   const photoDataUrl = `data:image/png;base64,${photo.toString("base64")}`;
 
@@ -45,143 +49,145 @@ export default async function OpengraphImage() {
           color: C.foreground,
           display: "flex",
           flexDirection: "column",
-          fontFamily: "IBM Plex Sans",
+          fontFamily: "Schibsted Grotesk",
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            alignItems: "center",
+            gap: 64,
             flex: 1,
-            padding: "56px 72px 40px",
+            padding: "0 72px",
           }}
         >
-          {/* Handle line — same as the hero */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              color: C.muted,
-              fontSize: 24,
-            }}
-          >
-            <span style={{ display: "flex" }}>
-              <span style={{ color: C.brand }}>@</span>
-              <span>lucmir</span>
-            </span>
-            <span style={{ color: C.subtle }}>·</span>
-            <span>Senior Full-Stack Engineer</span>
-          </div>
-
-          {/* Middle: poster name + copy on the left, ID card on the right */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 56,
-              flex: 1,
-              marginTop: 24,
-            }}
-          >
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 18 }}>
-              <div
-                style={{
-                  display: "flex",
-                  fontFamily: "Anton",
-                  fontSize: 150,
-                  lineHeight: 0.92,
-                  letterSpacing: "-0.01em",
-                  textTransform: "uppercase",
-                  color: C.brand,
-                  marginLeft: -4,
-                }}
-              >
-                {profile.name}
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: 34,
-                  lineHeight: 1.25,
-                  fontWeight: 600,
-                  color: C.ink,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                TypeScript · React · Node · AWS · AI agents
-              </div>
+          {/* Left: eyebrow, name, tagline — same structure as the hero */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: 14,
+                fontSize: 20,
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                color: C.muted,
+                marginBottom: 22,
+              }}
+            >
+              <span style={{ color: C.accent }}>@lucmir</span>
+              <span style={{ color: C.subtle }}>·</span>
+              <span>Senior Full-Stack Engineer</span>
             </div>
 
-            {/* ID card, like the hero aside: grey-lilac portrait panel, terracotta frame */}
+            <div
+              style={{
+                display: "flex",
+                fontSize: 122,
+                fontWeight: 700,
+                lineHeight: 0.95,
+                letterSpacing: "-5px",
+                color: C.ink,
+                marginLeft: -4,
+                marginBottom: 34,
+              }}
+            >
+              {/* flexShrink 0 + explicit margin: when the name is wider than the
+                  column, Satori shrinks the spans and swallows any gap. */}
+              <span style={{ flexShrink: 0, marginRight: 30 }}>{firstName}</span>
+              <span style={{ flexShrink: 0, color: C.accent }}>{lastName}</span>
+            </div>
+
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: 252,
-                border: `2px solid ${C.brand}`,
-                background: C.card,
+                borderLeft: `3px solid ${C.accent}`,
+                paddingLeft: 22,
+                gap: 6,
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  width: 248,
-                  height: 260,
-                  background: C.mist,
-                  borderBottom: `2px solid ${C.brand}`,
-                  overflow: "hidden",
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={photoDataUrl}
-                  alt=""
-                  width={248}
-                  height={260}
-                  style={{ objectFit: "cover", width: 248, height: 260 }}
-                />
+              <div style={{ display: "flex", gap: 10, fontSize: 36, fontWeight: 500, color: C.ink }}>
+                <span>Ships products</span>
+                <span style={{ color: C.accent }}>end to end</span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  padding: "14px 16px",
-                  fontSize: 17,
-                  color: C.muted,
-                }}
-              >
-                {[
-                  ["role", "Sr Eng"],
-                  ["team", "Civic"],
-                  ["exp", "15+ yr"],
-                ].map(([k, v]) => (
-                  <div key={k} style={{ display: "flex", gap: 14 }}>
-                    <span style={{ width: 56 }}>{k}</span>
-                    <span style={{ color: C.ink, fontWeight: 600 }}>{v}</span>
-                  </div>
-                ))}
+              <div style={{ display: "flex", fontSize: 26, color: C.muted, whiteSpace: "nowrap" }}>
+                TypeScript · React · Node · AWS · AI agents
               </div>
+            </div>
+          </div>
+
+          {/* Right: matted ID card, like the hero aside */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: 264,
+              padding: 10,
+              background: C.card,
+              border: `1px solid ${C.border}`,
+              borderRadius: 4,
+              boxShadow: "0 24px 48px -28px rgba(13,13,13,0.35)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                width: 242,
+                height: 254,
+                background: C.cardHi,
+                borderRadius: 2,
+                overflow: "hidden",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photoDataUrl}
+                alt=""
+                width={242}
+                height={254}
+                style={{ objectFit: "cover", width: 242, height: 254 }}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 6,
+                padding: "14px 6px 4px",
+                fontSize: 18,
+                color: C.muted,
+              }}
+            >
+              {[
+                ["role", "Sr Eng"],
+                ["team", "Civic"],
+                ["exp", "15+ yr"],
+              ].map(([k, v]) => (
+                <div key={k} style={{ display: "flex", gap: 14 }}>
+                  <span style={{ width: 60 }}>{k}</span>
+                  <span style={{ color: C.ink, fontWeight: 500 }}>{v}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Footer: red band, like the site footer */}
+        {/* Footer: hairline rule, like the site footer */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "18px 72px",
-            background: C.brand,
-            color: C.brandInk,
+            margin: "0 72px",
+            padding: "22px 0 30px",
+            borderTop: `1px solid ${C.border}`,
+            color: C.muted,
             fontSize: 22,
           }}
         >
-          <span style={{ display: "flex", gap: 10 }}>
-            <span style={{ color: C.mist }}>©</span>
-            <span>lucas-cunha.com</span>
+          <span style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <span style={{ display: "flex", width: 10, height: 10, borderRadius: 5, background: C.accent }} />
+            <span style={{ color: C.ink, fontWeight: 500 }}>lucas-cunha.com</span>
           </span>
           <span>Belo Horizonte · UTC−3</span>
         </div>
@@ -190,9 +196,9 @@ export default async function OpengraphImage() {
     {
       ...size,
       fonts: [
-        { name: "Anton", data: anton, weight: 400, style: "normal" },
-        { name: "IBM Plex Sans", data: plex, weight: 400, style: "normal" },
-        { name: "IBM Plex Sans", data: plexBold, weight: 600, style: "normal" },
+        { name: "Schibsted Grotesk", data: regular, weight: 400, style: "normal" },
+        { name: "Schibsted Grotesk", data: medium, weight: 500, style: "normal" },
+        { name: "Schibsted Grotesk", data: bold, weight: 700, style: "normal" },
       ],
     },
   );

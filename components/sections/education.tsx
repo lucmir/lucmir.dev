@@ -7,7 +7,7 @@ export function Education() {
       id="education"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead name="education" aside="UFMG · 2 degrees" />
+      <SectionHead name="education" index={6} aside="UFMG · 2 degrees" />
 
       <div className="border border-border bg-background-card">
         {education.map((e, i) => {

@@ -8,10 +8,10 @@ export function Skills() {
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
       <SectionHead
-        name="skills"
+        name="skills" index={4}
         aside={
           <>
-            <span className="bg-sage text-ink-inv px-1.5 py-0.5 rounded-[4px]">highlighted</span> = primary
+            <span className="bg-accent-soft text-accent px-1.5 py-0.5 rounded-[4px]">highlighted</span> = primary
           </>
         }
       />
@@ -34,7 +34,7 @@ export function Skills() {
                 {group.items.map((s) => (
                   <span
                     key={s.name}
-                    className={s.highlight ? "bg-sage text-ink-inv px-1.5 py-0.5 rounded-[4px] font-medium" : "text-foreground-muted"}
+                    className={s.highlight ? "bg-accent-soft text-accent px-1.5 py-0.5 rounded-[4px] font-medium" : "text-foreground-muted"}
                   >
                     {s.name}
                   </span>

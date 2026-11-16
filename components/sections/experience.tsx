@@ -85,7 +85,7 @@ export async function Experience() {
       id="experience"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead name="experience" aside={`${items.length} roles · most recent first`} />
+      <SectionHead name="experience" index={3} aside={`${items.length} roles · most recent first`} />
 
       {/* Timeline: the column divider (card's left edge on mobile) is the
           track. The accent fill and dots are animated by scroll in

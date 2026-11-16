@@ -8,13 +8,13 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { profile } from "@/lib/cv-data";
 
 const SECTIONS = [
-  { id: "about",          label: "about" },
-  { id: "activity",       label: "activity" },
-  { id: "experience",     label: "experience" },
-  { id: "skills",         label: "skills" },
-  { id: "certifications", label: "certifications" },
-  { id: "education",      label: "education" },
-  { id: "contact",        label: "contact" },
+  { id: "about",          label: "About" },
+  { id: "activity",       label: "Activity" },
+  { id: "experience",     label: "Experience" },
+  { id: "skills",         label: "Skills" },
+  { id: "certifications", label: "Certifications" },
+  { id: "education",      label: "Education" },
+  { id: "contact",        label: "Contact" },
 ];
 
 export function Nav() {
@@ -90,14 +90,17 @@ export function Nav() {
         <Link
           href="#top"
           onClick={() => setMenuOpen(false)}
-          className="inline-flex items-center gap-2.5 text-foreground-strong text-[16px]"
+          className="inline-flex items-center gap-2.5 text-foreground-strong text-[16px] font-medium"
         >
-          <span className="display grid place-items-center size-[22px] text-[15px] pt-px text-brand-ink bg-brand">
+          <span className="display grid place-items-center size-[26px] rounded-full text-[15px] tracking-normal text-brand-ink bg-brand">
             L
           </span>
           <span>
-            Lucas Cunha <span className="text-foreground-subtle">/</span>
-            <span className="text-foreground-muted"> lucmir</span>
+            Lucas Cunha
+            <span className="hidden sm:inline">
+              {" "}<span className="text-foreground-subtle">/</span>
+              <span className="text-foreground-muted"> lucmir</span>
+            </span>
           </span>
         </Link>
 

@@ -19,7 +19,7 @@ export function Certifications() {
       id="certifications"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead name="certifications" />
+      <SectionHead name="certifications" index={5} />
 
       <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
         {certifications.map((c, i) => (

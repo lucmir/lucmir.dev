@@ -7,7 +7,7 @@ import type {
   ContributionLevel,
 } from "@/lib/github";
 
-// Ramp lives in globals.css (--heat-1..4) so dark mode can invert the olive
+// Ramp lives in globals.css (--heat-1..4) so dark mode can flip the orange
 // steps; level 1 is a clear step up from "none" rather than a near-neutral.
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
   NONE: "bg-foreground/[0.06]",

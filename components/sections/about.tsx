@@ -14,7 +14,7 @@ export function About() {
       id="about"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead name="about" />
+      <SectionHead name="about" index={1} />
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] border border-border bg-background-card">
         <div className="p-6 sm:p-7 md:border-r border-b md:border-b-0 border-border">
@@ -30,13 +30,13 @@ export function About() {
           ))}
         </div>
 
-        <aside className="p-5 grid gap-3.5 content-start text-[14.5px] bg-sage text-ink-inv">
+        <aside className="p-5 grid gap-3.5 content-start text-[14.5px] bg-background-card-hi">
           {SIDE_META.map((row) => (
             <div key={row.k}>
-              <div className="text-ink-inv-muted uppercase tracking-[0.1em] text-[13px] mb-1">
+              <div className="text-foreground-subtle uppercase tracking-[0.1em] text-[12.5px] mb-1">
                 {row.k}
               </div>
-              <div className={row.accent ? "text-ink-inv font-semibold text-[15.5px] underline decoration-brand decoration-2 underline-offset-4" : "text-ink-inv text-[15.5px]"}>
+              <div className={row.accent ? "text-foreground-strong font-semibold text-[15.5px]" : "text-foreground text-[15.5px]"}>
                 {row.v}
               </div>
             </div>
@@ -49,18 +49,27 @@ export function About() {
 
 export function SectionHead({
   name,
+  index,
   aside,
 }: {
   name: string;
+  index?: number;
   aside?: React.ReactNode;
 }) {
   return (
-    <div className="flex items-end justify-between mb-7 gap-4 flex-wrap border-b-2 border-brand pb-3">
-      <h2 className="display text-brand text-[clamp(2.4rem,6vw,4.25rem)] m-0">
-        {name}
-      </h2>
+    <div className="flex items-end justify-between mb-8 gap-4 flex-wrap border-b border-border pb-4">
+      <div>
+        {index ? (
+          <div className="eyebrow text-accent mb-2">
+            {String(index).padStart(2, "0")}
+          </div>
+        ) : null}
+        <h2 className="display text-foreground-strong text-[clamp(2.5rem,5vw,3.75rem)] m-0 first-letter:uppercase">
+          {name}
+        </h2>
+      </div>
       {aside ? (
-        <span className="text-[15.5px] text-foreground-muted">
+        <span className="eyebrow text-foreground-muted pb-1.5">
           {aside}
         </span>
       ) : null}

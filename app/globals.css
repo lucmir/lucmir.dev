@@ -1,75 +1,55 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────────
-   Color tokens — light by default, terracotta / olive / forest on grey-lilac.
-   - :root                → light (the default for everyone)
-   - [data-theme="dark"]  → dark, set only by the toggle
-   - [data-theme="light"] → light (explicitly stored choice)
-   Every value is checked to WCAG AA (4.5:1) against its own
-   background before it lands here; see the contrast note per pair.
+   Color tokens: "Swiss signal" — neutral greys, black ink, one signal
+   orange. --accent is the text-safe orange (links, numerals, rules);
+   --brand is the solid fill for primary buttons and the nav mark (black
+   in light, near-white in dark, so the primary button inverts).
+   Heatmap ramp is all orange (peach → deep orange in light, ember →
+   bright in dark) so every level reads apart from the grey empty cells.
    ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Light (baseline) — grey-lilac paper, terracotta, olive, forest ink */
-  --background:          #ecebf0;
-  --background-elevated: #f5f4f8;
-  --background-card:     #f3f2f6;
-  --background-card-hi:  #e1dfe7;
-  --foreground:          #2f3020; /* 11.6:1 */
-  --foreground-strong:   #1f2015;
-  --foreground-muted:    #5b5c4e; /* 6.3:1 */
-  --foreground-subtle:   #76776a;
-  --border:              #cdcbd6;
-  --border-strong:       #aeabbc;
-  --accent:              #a8482a; /* text-safe terracotta, 4.8:1 */
-  --accent-soft:         rgba(217, 104, 70, 0.12);
-  --brand:               #d96846; /* display / fills */
-  --brand-ink:           #f7f3ee; /* text on brand */
-  --sage:                #596235; /* olive fill */
-  --sage-soft:           #8e9a62;
-  --mist:                #cdcbd6; /* grey-lilac fill */
-  --ink:                 #1f2015; /* text on mist, both themes */
-  --ink-muted:           rgba(31, 32, 21, 0.68);
-  --ink-inv:             #f3f1ec; /* text on sage/brand, both themes */
-  --ink-inv-muted:       rgba(243, 241, 236, 0.74);
-  --info:                #4f6b3a;
-  --info-soft:           rgba(89, 98, 53, 0.12);
-  /* Heatmap ramp: clearly above "none" at level 1, terracotta at the top */
-  --heat-1:              #c3cb9e;
-  --heat-2:              #8e9a62;
-  --heat-3:              #596235;
-  --heat-4:              #d96846;
+  --background:          #f4f4f2;
+  --background-elevated: #ffffff;
+  --background-card:     #ffffff;
+  --background-card-hi:  #ebebe8;
+  --foreground:          #222222;
+  --foreground-strong:   #0d0d0d;
+  --foreground-muted:    #5c5c5a; /* 6.1:1 */
+  --foreground-subtle:   #777775;
+  --border:              #e0e0dc;
+  --border-strong:       #c4c4bf;
+  --accent:              #ff7a3d; /* same orange as dark; 2.35:1 on bg (user choice, below AA for small text) */
+  --accent-soft:         rgba(255, 122, 61, 0.12);
+  --brand:               #0d0d0d;
+  --brand-ink:           #ffffff;
+  --heat-1:              #ffd6c2;
+  --heat-2:              #ffa77c;
+  --heat-3:              #ff7a3d;
+  --heat-4:              #c2410c;
 }
 
 /* Dark is opt-in: applied only when the toggle sets data-theme="dark".
    The OS preference deliberately does NOT switch the palette. */
 html[data-theme="dark"] {
-  --background:          #1f2117;
-  --background-elevated: #292c1f;
-  --background-card:     #25281c;
-  --background-card-hi:  #313527;
-  --foreground:          #e6e4da;
-  --foreground-strong:   #f4f2ea;
-  --foreground-muted:    #b1b0a2;
-  --foreground-subtle:   #858476;
-  --border:              #3e4230;
-  --border-strong:       #575c45;
-  --accent:              #f0936e; /* 7.4:1 */
-  --accent-soft:         rgba(240, 147, 110, 0.14);
-  --brand:               #d96846;
-  --brand-ink:           #f7f3ee;
-  --sage:                #6b7742;
-  --sage-soft:           #8e9a62;
-  --mist:                #cdcbd6;
-  --ink:                 #1f2015;
-  --ink-muted:           rgba(31, 32, 21, 0.68);
-  --ink-inv:             #f3f1ec;
-  --ink-inv-muted:       rgba(243, 241, 236, 0.74);
-  --info:                #a9b87c;
-  --info-soft:           rgba(169, 184, 124, 0.14);
-  --heat-1:              #4a5233;
-  --heat-2:              #6f7b47;
-  --heat-3:              #9aa86a;
-  --heat-4:              #d96846;
+  --background:          #0e0e0e;
+  --background-elevated: #171717;
+  --background-card:     #141414;
+  --background-card-hi:  #1f1f1f;
+  --foreground:          #dcdcdc;
+  --foreground-strong:   #f5f5f5;
+  --foreground-muted:    #a0a0a0; /* 7.4:1 */
+  --foreground-subtle:   #7f7f7f;
+  --border:              #272727;
+  --border-strong:       #3a3a3a;
+  --accent:              #ff7a3d; /* 7.5:1 */
+  --accent-soft:         rgba(255, 122, 61, 0.11);
+  --brand:               #f5f5f5;
+  --brand-ink:           #0e0e0e;
+  --heat-1:              #4a2414;
+  --heat-2:              #8a3c1a;
+  --heat-3:              #d25a26;
+  --heat-4:              #ff7a3d;
 }
 
 /* Tailwind v4 theme tokens — map CSS vars to utility classes */
@@ -86,24 +66,15 @@ html[data-theme="dark"] {
   --color-border-strong:       var(--border-strong);
   --color-accent:              var(--accent);
   --color-accent-soft:         var(--accent-soft);
-  --color-info:                var(--info);
-  --color-info-soft:           var(--info-soft);
   --color-brand:               var(--brand);
   --color-brand-ink:           var(--brand-ink);
-  --color-sage:                var(--sage);
-  --color-sage-soft:           var(--sage-soft);
-  --color-mist:                var(--mist);
-  --color-ink:                 var(--ink);
-  --color-ink-muted:           var(--ink-muted);
-  --color-ink-inv:             var(--ink-inv);
-  --color-ink-inv-muted:       var(--ink-inv-muted);
   --color-heat-1:              var(--heat-1);
   --color-heat-2:              var(--heat-2);
   --color-heat-3:              var(--heat-3);
   --color-heat-4:              var(--heat-4);
-  --font-sans: var(--font-plex-sans);
-  --font-mono: var(--font-plex-mono);
-  --font-display: var(--font-anton);
+  --font-sans: var(--font-sans-face);
+  --font-mono: var(--font-mono-face);
+  --font-display: var(--font-sans-face);
 }
 
 html { color-scheme: light; }
@@ -118,7 +89,7 @@ html[data-theme="dark"] { color-scheme: dark; }
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-sans-face), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -131,14 +102,23 @@ code, kbd, samp, pre, .font-mono {
   font-feature-settings: "zero", "ss01", "tnum";
 }
 
-::selection { background: var(--mist); color: var(--foreground-strong); }
+::selection { background: var(--heat-1); color: var(--foreground-strong); }
 
-/* Poster display type: tight, uppercase, no anti-aliased fuzz at size. */
+/* Display type: same grotesk as the body, bold and tightly tracked, for
+   the name, section titles and big numerals. */
 .display {
-  font-family: var(--font-anton), Impact, "Arial Narrow Bold", sans-serif;
+  font-family: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+/* Small uppercase mono label: section numbers, tile labels, meta lines. */
+.eyebrow {
+  font-family: var(--font-mono-face), ui-monospace, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.9;
 }
 * { scrollbar-color: var(--border-strong) transparent; }
 

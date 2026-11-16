@@ -15,7 +15,7 @@ export async function GithubActivity() {
       id="activity"
       className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14 border-b border-border scroll-mt-20"
     >
-      <SectionHead name="activity" aside="GitHub · last 12 months" />
+      <SectionHead name="activity" index={2} aside="GitHub · last 12 months" />
 
       <div className="border border-border rounded-[8px] bg-background-card">
         <div className="p-5 sm:p-6 overflow-x-auto">
@@ -36,7 +36,7 @@ export async function GithubActivity() {
         </div>
       </div>
 
-      <p className="mt-4 py-3 px-4 font-sans text-[15.5px] leading-[1.55] text-foreground bg-accent-soft border-l-2 border-accent rounded-r-[6px] max-w-[80ch]">
+      <p className="mt-4 py-3 px-4 font-sans text-[15.5px] leading-[1.55] text-foreground bg-accent-soft border-l-2 border-accent rounded-r-[6px]">
         <b className="text-accent font-semibold">Caveat:</b>{" "}
         Commit count is a silly metric. Colored squares aren&apos;t shipped
         software.

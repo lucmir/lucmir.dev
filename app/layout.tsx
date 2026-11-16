@@ -1,32 +1,27 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Anton, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ConsoleHello } from "@/components/console-hello";
 import { profile } from "@/lib/cv-data";
 import "./globals.css";
 
-/* Weights are trimmed to what the UI actually uses (400/500/600) — nothing
-   renders at 300 or 700; bold-ish accents are font-semibold. Re-add a weight
-   here if a new design element needs it. */
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  weight: ["400", "500", "600"],
+/* One grotesk for everything: Schibsted Grotesk (variable) at regular
+   weight for body/UI and bold + tight tracking for display (name, section
+   titles, numerals). IBM Plex Mono for data (dates, counts, tags). */
+const sans = Schibsted_Grotesk({
+  variable: "--font-sans-face",
   subsets: ["latin"],
 });
 
-// Display face for the poster-style headlines (hero name, section heads).
-const anton = Anton({
-  variable: "--font-anton",
-  weight: "400",
+// Mono is Plex. (Geist Mono was tried: its font URL fails to resolve
+// under Turbopack in Next 16.2.6: "queries have exactly one entry".)
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono-face",
+  weight: ["400", "500"],
   subsets: ["latin"],
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lucas-cunha.com";
 const TITLE = `${profile.name} · Senior Full-Stack Engineer · TypeScript, React, Node · AI Agents`;
@@ -53,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbfbfa",
+  themeColor: "#f4f4f2",
   colorScheme: "light",
 };
 
@@ -122,7 +117,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plexSans.variable} ${plexMono.variable} ${anton.variable} h-full antialiased`}
+      className={`${sans.variable} ${mono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
