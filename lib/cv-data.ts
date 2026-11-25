@@ -40,7 +40,7 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "Senior Full-Stack Engineer & DevOps Lead",
+    role: "AI Engineer",
     duration: "Apr 2025 — Present",
     location: "Belo Horizonte, Brazil",
     bullets: [
@@ -48,7 +48,7 @@ export const experience: ExperienceItem[] = [
       "Bryn (AI): full-stack build of a signal-based GTM product: Next.js/React front end, Node.js services, and a PostgreSQL data model, where LLM-powered agents identify company visitors, enrich and score intent signals, and trigger automated plays into Slack and CRM",
       "Bryn enrichment pipeline: design and ship the agent orchestration that combines LLM calls with third-party data providers, with evaluation and observability built in",
       "Analytics pipeline: own the Kinesis → Lambda → Redshift pipeline that powers product usage reporting",
-      "Also lead infrastructure across Civic products (AWS/EKS, GitOps, CI/CD, observability, incident response), so every feature ships with the full deploy and reliability story",
+      "Continue to lead infrastructure across Civic products, so every feature ships with the full deploy and reliability story",
     ],
     stack: [
       "TypeScript",
@@ -66,11 +66,23 @@ export const experience: ExperienceItem[] = [
     company: "Civic Technologies",
     monogram: "CT",
     logo: "/logo-civic.png",
-    role: "Senior Full-Stack Engineer",
-    duration: "Nov 2018 — Apr 2025",
+    role: "Senior Full-Stack Engineer & DevOps Lead",
+    duration: "Jun 2024 — Apr 2025",
     location: "Belo Horizonte, Brazil",
     bullets: [
+      "Led infrastructure across Civic products: AWS/EKS, GitOps, CI/CD, observability, and incident response",
       "Civic Auth: complete identity and authentication platform (OAuth 2.0, OIDC) on Next.js + React",
+    ],
+    stack: ["TypeScript", "Next.js", "React", "AWS", "Kubernetes", "GitOps"],
+  },
+  {
+    company: "Civic Technologies",
+    monogram: "CT",
+    logo: "/logo-civic.png",
+    role: "Senior Full-Stack Engineer",
+    duration: "Nov 2018 — Jun 2024",
+    location: "Belo Horizonte, Brazil",
+    bullets: [
       "Civic Pass: on-chain identity credentials on Solana and EVM chains — scaled to 1M+ passes issued",
       "Civic Wallet: APIs for crypto wallet and payments (Node.js, Serverless, AWS)",
     ],
